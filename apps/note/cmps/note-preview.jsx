@@ -1,6 +1,7 @@
 import { NoteImg } from "./note-img.jsx"
 import { NoteTodos } from "./note-todos.jsx"
 import { NoteTxt } from "./note-txt.jsx"
+import { NoteVideo } from "./note-video.jsx"
 
 export function NotePreview({ note }) {
 
@@ -12,12 +13,14 @@ export function NotePreview({ note }) {
                 return NoteImg
             case 'note-todos':
                 return NoteTodos
+            case 'note-video':
+                return NoteVideo
         }
     }
 
     const DynamicCmp = getNoteType(note.type)
 
-    return <article className="grid-item">
+    return <React.Fragment>
         <DynamicCmp info={note.info} />
-    </article>
+    </ React.Fragment>
 }
