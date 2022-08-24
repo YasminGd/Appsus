@@ -8,10 +8,17 @@
   margin-right: 18px;
   width: 600px;
   font-size: 14px;
+  width: 80vw;
   cursor: pointer;
 }
 
-.mail-preview .star {
+.mail-preview:hover {
+  color: #202124;
+  box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0,
+    0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+}
+
+.mail-preview .star-img-container {
   width: 25px;
   height: 25px;
   margin-right: 10px;
@@ -19,7 +26,48 @@
 
 .mail-preview .mail-address {
   margin-right: 30px;
+  padding: 8px;
 }
 
-/* .mail-preview .mail-content {
-} */
+.mail-preview .mail-content {
+  text-overflow: ellipsis;
+}
+
+.mail-preview .mail-date {
+  position: absolute;
+  right: 25px;
+}
+
+.mail-preview .trash-img-container,
+.mail-preview .read-img-container {
+  position: absolute;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  box-sizing: content-box;
+  display: none;
+}
+
+.mail-preview:hover .trash-img-container,
+.mail-preview:hover .read-img-container {
+  display: block;
+}
+
+.mail-preview:hover .mail-date {
+  display: none;
+}
+
+.mail-preview .trash-img-container {
+  right: 55px;
+}
+
+.mail-preview .read-img-container {
+  right: 25px;
+}
+
+.mail-preview .read-img-container:hover,
+.mail-preview .trash-img-container:hover,
+.mail-preview .star-img-container:hover {
+  background-color: rgba(128, 128, 128, 0.103);
+  border-radius: 50%;
+}

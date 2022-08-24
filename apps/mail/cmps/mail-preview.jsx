@@ -8,7 +8,7 @@ export function MailPreview({ mail }) {
   return (
     <Link to="/mail/singleMail">
       <article className="mail-preview">
-        <div className="star">
+        <div className="star-img-container">
           <img src="../../../assets/img/mail/star-icon.png" alt="" />
         </div>
         <span className="mail-address">{from}</span>
@@ -19,6 +19,12 @@ export function MailPreview({ mail }) {
         <span className="mail-date">
           {utilService.getFormattedTime(sentAt)}
         </span>
+        <div className="trash-img-container">
+          <img src="../../../assets/img/mail/trash-icon.png" />
+        </div>
+        <div className="read-img-container">
+          <img src="../../../assets/img/mail/unread-icon.png" />
+        </div>
       </article>
     </Link>
   )
