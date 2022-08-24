@@ -63,10 +63,11 @@ export class AddNote extends React.Component {
             case ('note-txt'):
                 return 'Take a note...'
             case ('note-img'):
+                return 'Enter an image link'
             case ('note-video'):
-                return 'Enter a URL'
+                return 'Enter a video link'
             case ('note-todos'):
-                return 'Enter a todos list separated by comas'
+                return 'Enter a list separated by comas'
         }
     }
 
@@ -78,15 +79,11 @@ export class AddNote extends React.Component {
         return <section className="add-note">
             <section class="input-container">
                 <TypeOfNotesIcons onChangeTypeOfNote={this.resetNote} />
-                <div className="inputs">
-                    <form onSubmit={this.onAddNewNote}>
-                        <input type="text" placeholder="Take a note..." name="title" value={title} onChange={this.handleChange} />
-                        <input type="text" placeholder={placeholder} name={name} value={this.state.info[name]} onChange={this.handleChange} />
-                        <button></button>
-                    </form>
-                </div>
-
-
+                <form onSubmit={this.onAddNewNote} className="inputs">
+                    <input type="text" placeholder="Title" name="title" value={title} onChange={this.handleChange} />
+                    <input type="text" placeholder={placeholder} name={name} value={this.state.info[name]} onChange={this.handleChange} />
+                    <button>Create</button>
+                </form>
             </section>
         </section>
     }

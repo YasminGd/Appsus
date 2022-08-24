@@ -21,7 +21,7 @@ const gNotes = [
         type: "note-img",
         info: {
             url: "https://wompampsupport.azureedge.net/fetchimage?siteId=7575&v=2&jpgQuality=100&width=700&url=https%3A%2F%2Fi.kym-cdn.com%2Fentries%2Ficons%2Fmobile%2F000%2F022%2F134%2Felmo.jpg",
-            title: "Bobi and Me"
+            title: "YEs"
         },
         style: {
             backgroundColor: "#d7aefb"
@@ -31,10 +31,10 @@ const gNotes = [
         id: "n103",
         type: "note-todos",
         info: {
-            label: "Get my stuff together",
+            title: "Get my stuff together",
             todos: [
-                { txt: "Driving liscence", doneAt: null },
-                { txt: "Coding power", doneAt: 187111111 }
+                { txt: "Move back home", doneAt: null, id: utilService.makeId() },
+                { txt: "Pet a cat", doneAt: 187111111, id: utilService.makeId() }
             ]
         }
     },
@@ -42,41 +42,30 @@ const gNotes = [
         id: "n104",
         type: "note-todos",
         info: {
-            label: "Get my stuff together",
+            title: "subjects",
             todos: [
-                { txt: "Driving liscence", doneAt: null },
-                { txt: "Coding power", doneAt: 187111111 }
-            ]
-        }
-    },
-    {
-        id: "n105",
-        type: "note-todos",
-        info: {
-            label: "Get my stuff together",
-            todos: [
-                { txt: "Driving liscence", doneAt: null },
-                { txt: "Coding power", doneAt: 187111111 }
+                { txt: "ajax", doneAt: null, id: utilService.makeId() },
+                { txt: "CRUDL", doneAt: 187111111, id: utilService.makeId() }
             ]
         }
     },
     {
         id: "n106",
-        type: "note-todos",
+        type: "note-img",
         info: {
-            label: "Get my stuff together",
-            todos: [
-                { txt: "Driving liscence", doneAt: null },
-                { txt: "Coding power", doneAt: 187111111 }
-            ]
+            url: "https://blogs.nasa.gov/webb/wp-content/uploads/sites/326/2022/08/JWST_2022-07-27_Jupiter.png",
+            title: ""
+        },
+        style: {
+            backgroundColor: "#f28b82"
         }
     },
     {
         id: "n107",
         type: "note-img",
         info: {
-            url: "https://wompampsupport.azureedge.net/fetchimage?siteId=7575&v=2&jpgQuality=100&width=700&url=https%3A%2F%2Fi.kym-cdn.com%2Fentries%2Ficons%2Fmobile%2F000%2F022%2F134%2Felmo.jpg",
-            title: "Bobi and Me"
+            url: "https://images7.memedroid.com/images/UPLOADED952/5dea9e3e37e82.jpeg",
+            title: ""
         },
         style: {
             backgroundColor: "#f28b82"
@@ -86,8 +75,8 @@ const gNotes = [
         id: "n108",
         type: "note-img",
         info: {
-            url: "https://wompampsupport.azureedge.net/fetchimage?siteId=7575&v=2&jpgQuality=100&width=700&url=https%3A%2F%2Fi.kym-cdn.com%2Fentries%2Ficons%2Fmobile%2F000%2F022%2F134%2Felmo.jpg",
-            title: "Bobi and Me"
+            url: "https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1175550351.jpg",
+            title: ""
         },
         style: {
             backgroundColor: "#fff475"
@@ -98,7 +87,7 @@ const gNotes = [
         type: "note-video",
         info: {
             url: "https://www.youtube.com/watch?v=NxqDMDF59Lo",
-            title: "Bobi and Me"
+            title: ""
         },
         style: {
             backgroundColor: "#aecbfa"
@@ -121,10 +110,22 @@ function addNewNote(note) {
     const notes = storageService.loadFromStorage(KEY)
     if (note.type === 'note-todos') {
         let todos = note.info.todos.split(',')
-        todos = todos.map(todo => ({ txt: todo.trim(), doneAt: null }))
+        todos = todos.map(todo => ({ txt: todo.trim(), doneAt: null, id: utilService.makeId() }))
         note.info.todos = todos
     }
     notes.unshift(note)
     storageService.saveToStorage(KEY, notes)
     return Promise.resolve()
 }
+
+//!!Dogshit
+// function toggleTodo(todoId) {
+//     const notes = storageService.loadFromStorage(KEY)
+//     const todoNotes = notes.filter(note => note.type === 'note-todo')
+//     const todo = todoNotes.find(note => note.info.todos.find(todo => todo.id === todoId))
+
+//     todo.doneAt = todo.doneAt ? null : new Date()
+//     saveToStorage(KEY,notes)
+
+//     return Promise.resolve()
+// }

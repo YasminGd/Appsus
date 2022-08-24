@@ -16,15 +16,36 @@
     width: 100%;
     border: 1px solid #e0e0e0;
     border-radius: 0.5rem;
-    padding: 12px 16px;
     display: inline-block;
     margin-bottom: 1rem;
     line-height: 1.5rem;
     transition-duration: 0.218s;
     background-color: white;
+
 }
+
+.note-preview>*:not(.note-img):not(.note-video) {
+    padding: 12px 16px;
+}
+
 
 .note-preview:hover {
     box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 1px 3px 1px;
     cursor: pointer;
+    border: none;
+}
+
+.crossed-out {
+    text-decoration: line-through;
+}
+
+.round-below {
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+
+.note-img {
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    display: block;
 }

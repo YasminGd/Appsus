@@ -9,12 +9,22 @@
     width: 600px;
     min-height: 46px;
     padding: 12px 16px;
-    /* border-radius: 0.5rem; */
+    border-radius: 0.5rem;
     color: #202124;
     line-height: 1.25rem;
     font-weight: 500;
     display: block;
     /* box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%); */
+    border: none;
+}
+
+.inputs input:first-child {
+    line-height: 1.5rem;
+    letter-spacing: 0.1px;
+}
+
+.inputs input:last-child {
+    font-size: 14px;
 }
 
 .inputs {
@@ -25,13 +35,6 @@
 
 .add-note input:focus {
     outline: none;
-}
-
-
-/*Change pos to bottom!*/
-.add-note input::placeholder {
-    position: absolute;
-    bottom: 0;
 }
 
 .input-container {
@@ -76,5 +79,19 @@ i {
 }
 
 .add-note button {
-    display: none;
+    line-height: 1.25rem;
+    margin: 4px;
+    padding: 8px 24px;
+    position: absolute;
+    background-color: transparent;
+    border-radius: 4px;
+    border: none;
+    color: #202124;
+    right: 0;
+    bottom: 0;
+    margin-right: 15px;
+}
+
+.add-note button:hover {
+    background-color:rgba(95,99,104,0.039);
 }
