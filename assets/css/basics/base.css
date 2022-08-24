@@ -1,3 +1,7 @@
+html {
+   font-family: roboto; 
+}
+
 body {
     margin: 0;
 }
@@ -20,4 +24,9 @@ img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
 }
