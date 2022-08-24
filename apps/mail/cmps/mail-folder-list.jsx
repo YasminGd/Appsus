@@ -6,7 +6,10 @@ export class MailFolderList extends React.Component {
       <section className="mail-folder-list">
         <section className="fixed-mail-folder-list">
           <div className="compose-mail">
-            <img src="../../../assets/img/mail/compose-icon.png" alt="" />
+            <img
+              src="../../../assets/img/mail/compose-icon.png"
+              className="compose-img"
+            />
             <span>Compose</span>
           </div>
           <NavLink to="/mail/inbox">

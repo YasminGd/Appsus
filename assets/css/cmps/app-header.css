@@ -1,25 +1,25 @@
 header {
-    background: lightcyan;
-    border-bottom: 2px solid white;
+  background: lightcyan;
+  border-bottom: 2px solid white;
 }
 
 .app-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px;
-    height: 48px;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  height: 64px;
 }
 
 nav a {
-    margin: .5em;
+  margin: 0.5em;
 }
 
 nav a:active {
-    color: purple;
+  color: purple;
 }
 
 nav a.active {
-    color: darkblue;
-    font-weight: bold;
-    text-decoration: overline;
+  color: darkblue;
+  font-weight: bold;
+  text-decoration: overline;
 }

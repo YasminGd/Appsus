@@ -19,6 +19,7 @@ const gMails = [
     isRead: false,
     sentAt: 1551133930594,
     to: 'momo@momo.com',
+    from: 'yasmin@gudha.com',
   },
   {
     id: 'e102',
@@ -27,6 +28,7 @@ const gMails = [
     isRead: false,
     sentAt: 1551133930594,
     to: 'momo@momo.com',
+    from: 'bar@ohayon.com',
   },
   {
     id: 'e103',
@@ -35,11 +37,12 @@ const gMails = [
     isRead: false,
     sentAt: 1551133930594,
     to: 'momo@momo.com',
+    from: 'bar@ohayon.com',
   },
 ]
 
 function query(filterBy) {
-  let mails = _loadMailsFromStorage() || gMails
+  let mails = _loadMailsFromStorage()
   if (!mails || !mails.length) {
     mails = gMails
     _saveMailsToStorage(mails)

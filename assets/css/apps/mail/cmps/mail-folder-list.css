@@ -1,0 +1,30 @@
+.mail-folder-list {
+  width: 250px;
+}
+
+.fixed-mail-folder-list {
+  position: fixed;
+}
+
+.mail-folder-list .compose-mail {
+  /* position: absolute; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 8px;
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  width: 145px;
+  height: 48px;
+  border-radius: 24px;
+  line-height: 32px;
+  padding: 14px;
+  cursor: pointer;
+  /* box-shadow: 0 1px 2px 0rgba (60, 64, 67, 0.302),
+    0 1px 3px 1px rgba(60, 64, 67, 0.149); */
+}
+
+.mail-folder-list .compose-mail .compose-img {
+  height: 40px;
+  width: 40px;
+}
