@@ -23,7 +23,7 @@ export class MailApp extends React.Component {
     const { mails } = this.state
     return (
       <section className="mail-app">
-        <MailFilter />
+        {/* <MailFilter /> */}
         <MailFolderList />
         <MailList mails={mails} />
         {/* <MailCompose /> */}
