@@ -1,8 +1,10 @@
 import { MailPreview } from './mail-preview.jsx'
 
-export function MailList({ mails }) {
-    return <ul className="mail-list">{
-        mails.map(mail => <MailPreview mail={mail} />)
-    }
+export function MailList(props) {
+  const { mails } = props
+  return (
+    <ul className="mail-list">
+      {mails && mails.map((mail) => <MailPreview key={mail.id} mail={mail} />)}
     </ul>
+  )
 }

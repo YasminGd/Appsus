@@ -1,14 +1,33 @@
 import { MailCompose } from '../cmps/mail-compose.jsx'
 import { MailFilter } from '../cmps/mail-filter.jsx'
+import { MailFolderList } from '../cmps/mail-folder-list.jsx'
 import { MailList } from '../cmps/mail-list.jsx'
+import { mailService } from '../services/mail.service.js'
 
 export class MailApp extends React.Component {
-    render() {
-        return <section className="mail-app">
-            <MailFilter />
-            <MailList />
-            <MailCompose />
-        </section>
+  state = {
+    mails: null,
+    filterBy: null,
+  }
 
-    }
+  componentDidMount() {
+    this.loadMails()
+  }
+
+  loadMails = () => {
+    const { filterBy } = this.state
+    mailService.query(filterBy).then((mails) => this.setState({ mails }))
+  }
+
+  render() {
+    const { mails } = this.state
+    return (
+      <section className="mail-app">
+        <MailFilter />
+        <MailFolderList />
+        <MailList mails={mails} />
+        {/* <MailCompose /> */}
+      </section>
+    )
+  }
 }
