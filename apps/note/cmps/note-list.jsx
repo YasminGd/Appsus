@@ -1,12 +1,13 @@
 import { NotePreview } from "./note-preview.jsx";
 
 export function NoteList({ notes }) {
-    return <ul className="note-list">
+    return <section className="note-list">
         {
-            notes.map(note =>
-                <li key={note.id} className="note-preview">
+            notes.map((note, idx) =>
+                <article key={note.id} className="note-preview">
+                    {idx}
                     <NotePreview note={note} />
-                </li>)
+                </article>)
         }
-    </ul>
+    </section>
 }

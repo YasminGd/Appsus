@@ -1,7 +1,11 @@
 .note-list {
-    display: grid;
-    columns: 5 200px;
-    /* grid-template-columns: repeat(5, 1fr); */
-    gap: 20px;
-    
+    /* display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center; */
+    columns:  200px 5;
+    height: 100vh;
+    column-gap: 1rem;
+    max-width: 1440px;
+    margin: auto;
 }

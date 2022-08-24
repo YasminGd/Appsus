@@ -1,0 +1,71 @@
+.add-note {
+    padding: 32px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-note input {
+    width: 600px;
+    min-height: 46px;
+    padding: 12px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px rgba(60, 64, 67, 0.149);
+    color: #202124;
+    line-height: 1.25rem;
+    font-weight: 500;
+    /* box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%); */
+}
+
+.add-note input:focus {
+    outline: none;
+}
+
+
+/*Change pos to bottom!*/
+.add-note input::placeholder {
+    position: absolute;
+    bottom: 0;
+}
+
+.input-container {
+    position: relative;
+}
+
+.type-of-notes-icons {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    /* top: 50%; */
+    /* transform: translate(0, 25%); */
+}
+
+.fa-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 46px;
+    height: 100%;
+    border-radius: 50%;
+    transition: 0.28s;
+    margin-inline-end: 10px;
+}
+
+.fa-container>* {
+    font-size: 20px;
+    opacity: 0.54;
+}
+
+.fa-container:hover {
+    background-color: rgba(95, 99, 104, 0.157);
+    cursor: pointer;
+}
+
+.fa-container>*:hover {
+    opacity: 0.87;
+}
+
+i {
+    color: #202124;
+}

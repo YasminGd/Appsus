@@ -4,7 +4,7 @@ export function NoteTodos({ info }) {
         <ul>
             {
                 info.todos.map(todo => <li key={todo.txt}>
-                    <button>X</button>
+                    <input type="checkbox"/>
                     {todo.txt}
                 </li>)
             }

@@ -67,6 +67,39 @@ const gNotes = [
                 { txt: "Coding power", doneAt: 187111111 }
             ]
         }
+    },
+    {
+        id: "n102",
+        type: "note-img",
+        info: {
+            url: "https://wompampsupport.azureedge.net/fetchimage?siteId=7575&v=2&jpgQuality=100&width=700&url=https%3A%2F%2Fi.kym-cdn.com%2Fentries%2Ficons%2Fmobile%2F000%2F022%2F134%2Felmo.jpg",
+            title: "Bobi and Me"
+        },
+        style: {
+            backgroundColor: "#00d"
+        }
+    },
+    {
+        id: "n102",
+        type: "note-img",
+        info: {
+            url: "https://wompampsupport.azureedge.net/fetchimage?siteId=7575&v=2&jpgQuality=100&width=700&url=https%3A%2F%2Fi.kym-cdn.com%2Fentries%2Ficons%2Fmobile%2F000%2F022%2F134%2Felmo.jpg",
+            title: "Bobi and Me"
+        },
+        style: {
+            backgroundColor: "#00d"
+        }
+    },
+    {
+        id: "n102",
+        type: "note-video",
+        info: {
+            url: "https://www.youtube.com/watch?v=NxqDMDF59Lo",
+            title: "Bobi and Me"
+        },
+        style: {
+            backgroundColor: "#00d"
+        }
     }
 ]
 const KEY = 'notesDB'
