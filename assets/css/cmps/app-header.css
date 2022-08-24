@@ -1,0 +1,25 @@
+header {
+    background: lightcyan;
+    border-bottom: 2px solid white;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    height: 48px;
+}
+
+nav a {
+    margin: .5em;
+}
+
+nav a:active {
+    color: purple;
+}
+
+nav a.active {
+    color: darkblue;
+    font-weight: bold;
+    text-decoration: overline;
+}
