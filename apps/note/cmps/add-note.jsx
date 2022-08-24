@@ -1,11 +1,92 @@
 import { TypeOfNotesIcons } from "./type-of-notes-icons.jsx";
+import { noteService } from "../services/note.service.js";
 
 export class AddNote extends React.Component {
+
+    state = {
+        type: 'note-txt',
+        info: {
+            title: '',
+            subject: '',
+            url: '',
+            todos: []
+        },
+    }
+
+    handleChange = ({ target }) => {
+        const field = target.name
+        console.log(field);
+        const value = target.value
+
+        this.setState((prevState) => ({
+            info: {
+                ...prevState.info,
+                [field]: value
+            }
+        }))
+    }
+
+    onAddNewNote = (ev) => {
+        ev.preventDefault()
+        this.props.onAddNewNote(this.state)
+        this.resetNote()
+    }
+
+    resetNote = (type = 'note-txt') => {
+        this.setState({
+            type,
+            info: {
+                title: '',
+                subject: '',
+                url: '',
+                todos: ''
+            },
+        }, this.resetSecondaryInput)
+    }
+
+    getInputNameAndVal = () => {
+        const { type } = this.state
+        switch (type) {
+            case ('note-txt'):
+                return 'subject'
+            case ('note-img'):
+            case ('note-video'):
+                return 'url'
+            case ('note-todos'):
+                return 'todos'
+        }
+    }
+
+    getInputPlaceHolder = () => {
+        const { type } = this.state
+        switch (type) {
+            case ('note-txt'):
+                return 'Take a note...'
+            case ('note-img'):
+            case ('note-video'):
+                return 'Enter a URL'
+            case ('note-todos'):
+                return 'Enter a todos list separated by comas'
+        }
+    }
+
     render() {
+        const { title } = this.state.info
+        const placeholder = this.getInputPlaceHolder()
+        const name = this.getInputNameAndVal()
+
         return <section className="add-note">
             <section class="input-container">
-                <TypeOfNotesIcons />
-                <input type="text" placeholder="Take a note..." />
+                <TypeOfNotesIcons onChangeTypeOfNote={this.resetNote} />
+                <div className="inputs">
+                    <form onSubmit={this.onAddNewNote}>
+                        <input type="text" placeholder="Take a note..." name="title" value={title} onChange={this.handleChange} />
+                        <input type="text" placeholder={placeholder} name={name} value={this.state.info[name]} onChange={this.handleChange} />
+                        <button></button>
+                    </form>
+                </div>
+
+
             </section>
         </section>
     }

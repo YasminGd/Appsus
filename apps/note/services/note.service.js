@@ -1,7 +1,9 @@
 import { storageService } from '../../../services/storage.service.js'
+import { utilService } from '../../../services/util.service.js'
 
 export const noteService = {
     query,
+    addNewNote,
 }
 
 const gNotes = [
@@ -10,7 +12,8 @@ const gNotes = [
         type: "note-txt",
         isPinned: true,
         info: {
-            txt: "Fullstack Me Baby!"
+            title: "Fullstack Me Baby!",
+            subject: ">:)"
         }
     },
     {
@@ -21,7 +24,7 @@ const gNotes = [
             title: "Bobi and Me"
         },
         style: {
-            backgroundColor: "#00d"
+            backgroundColor: "#d7aefb"
         }
     },
     {
@@ -36,7 +39,7 @@ const gNotes = [
         }
     },
     {
-        id: "n103",
+        id: "n104",
         type: "note-todos",
         info: {
             label: "Get my stuff together",
@@ -47,7 +50,7 @@ const gNotes = [
         }
     },
     {
-        id: "n103",
+        id: "n105",
         type: "note-todos",
         info: {
             label: "Get my stuff together",
@@ -58,7 +61,7 @@ const gNotes = [
         }
     },
     {
-        id: "n103",
+        id: "n106",
         type: "note-todos",
         info: {
             label: "Get my stuff together",
@@ -69,36 +72,36 @@ const gNotes = [
         }
     },
     {
-        id: "n102",
+        id: "n107",
         type: "note-img",
         info: {
             url: "https://wompampsupport.azureedge.net/fetchimage?siteId=7575&v=2&jpgQuality=100&width=700&url=https%3A%2F%2Fi.kym-cdn.com%2Fentries%2Ficons%2Fmobile%2F000%2F022%2F134%2Felmo.jpg",
             title: "Bobi and Me"
         },
         style: {
-            backgroundColor: "#00d"
+            backgroundColor: "#f28b82"
         }
     },
     {
-        id: "n102",
+        id: "n108",
         type: "note-img",
         info: {
             url: "https://wompampsupport.azureedge.net/fetchimage?siteId=7575&v=2&jpgQuality=100&width=700&url=https%3A%2F%2Fi.kym-cdn.com%2Fentries%2Ficons%2Fmobile%2F000%2F022%2F134%2Felmo.jpg",
             title: "Bobi and Me"
         },
         style: {
-            backgroundColor: "#00d"
+            backgroundColor: "#fff475"
         }
     },
     {
-        id: "n102",
+        id: "n109",
         type: "note-video",
         info: {
             url: "https://www.youtube.com/watch?v=NxqDMDF59Lo",
             title: "Bobi and Me"
         },
         style: {
-            backgroundColor: "#00d"
+            backgroundColor: "#aecbfa"
         }
     }
 ]
@@ -111,4 +114,17 @@ function query() {
         storageService.saveToStorage(KEY, notes)
     }
     return Promise.resolve(notes)
+}
+
+function addNewNote(note) {
+    note.id = utilService.makeId()
+    const notes = storageService.loadFromStorage(KEY)
+    if (note.type === 'note-todos') {
+        let todos = note.info.todos.split(',')
+        todos = todos.map(todo => ({ txt: todo.trim(), doneAt: null }))
+        note.info.todos = todos
+    }
+    notes.unshift(note)
+    storageService.saveToStorage(KEY, notes)
+    return Promise.resolve()
 }
