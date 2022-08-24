@@ -20,7 +20,7 @@ export class NoteApp extends React.Component {
         const { notes } = this.state
         return <section className="note-app">
             <div>note app</div>
-            <NoteList notes={notes} />
+            <NoteList notes={notes}/>
         </section>
     }
 }

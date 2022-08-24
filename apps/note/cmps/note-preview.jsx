@@ -17,7 +17,7 @@ export function NotePreview({ note }) {
 
     const DynamicCmp = getNoteType(note.type)
 
-    return <article>
+    return <article className="grid-item">
         <DynamicCmp info={note.info} />
     </article>
 }
