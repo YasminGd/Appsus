@@ -7,10 +7,11 @@
 }
 
 .mail-folder-list .compose-mail {
-  /* position: absolute; */
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
+  top: 10px;
   left: 8px;
   font-size: 14px;
   letter-spacing: 0.25px;
@@ -20,11 +21,67 @@
   line-height: 32px;
   padding: 14px;
   cursor: pointer;
-  /* box-shadow: 0 1px 2px 0rgba (60, 64, 67, 0.302),
-    0 1px 3px 1px rgba(60, 64, 67, 0.149); */
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.mail-folder-list .compose-mail span {
+  font-size: 14px;
+  font-weight: 600;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.mail-folder-list .compose-mail:hover {
+  box-shadow: 0 1px 3px 0rgba (60, 64, 67, 0.302),
+    0 4px 8px 3px rgba(60, 64, 67, 0.149);
+  background-color: rgba(60, 64, 67, 0.027);
 }
 
 .mail-folder-list .compose-mail .compose-img {
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
+}
+
+.mail-folder-list .mail-types-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 70px;
+}
+
+.mail-folder-list .mail-types-container > * {
+  width: 190px;
+  height: 32px;
+}
+
+.mail-folder-list .mail-type {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-left: 20px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.mail-folder-list a {
+  display: flex;
+  align-items: center;
+}
+
+.mail-folder-list a:hover {
+  background-color: #e8eaed94;
+  border-start-end-radius: 25px;
+  border-end-end-radius: 25px;
+  padding-right: 16px;
+}
+
+.mail-folder-list .type {
+  width: 80%;
+  font-size: 14px;
+}
+
+.mail-folder-list .mail-type-img {
+  width: 20px;
+  height: 20px;
 }
