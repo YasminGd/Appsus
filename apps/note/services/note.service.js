@@ -34,6 +34,39 @@ const gNotes = [
                 { txt: "Coding power", doneAt: 187111111 }
             ]
         }
+    },
+    {
+        id: "n103",
+        type: "note-todos",
+        info: {
+            label: "Get my stuff together",
+            todos: [
+                { txt: "Driving liscence", doneAt: null },
+                { txt: "Coding power", doneAt: 187111111 }
+            ]
+        }
+    },
+    {
+        id: "n103",
+        type: "note-todos",
+        info: {
+            label: "Get my stuff together",
+            todos: [
+                { txt: "Driving liscence", doneAt: null },
+                { txt: "Coding power", doneAt: 187111111 }
+            ]
+        }
+    },
+    {
+        id: "n103",
+        type: "note-todos",
+        info: {
+            label: "Get my stuff together",
+            todos: [
+                { txt: "Driving liscence", doneAt: null },
+                { txt: "Coding power", doneAt: 187111111 }
+            ]
+        }
     }
 ]
 const KEY = 'notesDB'
