@@ -30,6 +30,8 @@
 }
 
 .mail-preview .mail-content {
+  width: 0;
+  flex-grow: 1;
   text-overflow: ellipsis;
 }
 
