@@ -6,9 +6,8 @@
   box-shadow: rgba(100, 121, 143, 0.12) 0px -1px 0px 0px inset;
   padding: 10px;
   margin-right: 18px;
-  width: 600px;
+  width: calc(95vw - 210px);
   font-size: 14px;
-  width: 80vw;
   cursor: pointer;
   position: relative;
 }
