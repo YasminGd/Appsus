@@ -4,6 +4,7 @@ import { utilService } from '../../../services/util.service.js'
 export const noteService = {
     query,
     addNewNote,
+    toggleTodo
 }
 
 const gNotes = [
@@ -24,7 +25,7 @@ const gNotes = [
             title: "YEs"
         },
         style: {
-            backgroundColor: "#d7aefb"
+            backgroundColor: "dark-blue"
         }
     },
     {
@@ -36,6 +37,9 @@ const gNotes = [
                 { txt: "Move back home", doneAt: null, id: utilService.makeId() },
                 { txt: "Pet a cat", doneAt: 187111111, id: utilService.makeId() }
             ]
+        },
+        style: {
+            backgroundColor: "purple"
         }
     },
     {
@@ -47,6 +51,9 @@ const gNotes = [
                 { txt: "ajax", doneAt: null, id: utilService.makeId() },
                 { txt: "CRUDL", doneAt: 187111111, id: utilService.makeId() }
             ]
+        },
+        style: {
+            backgroundColor: "orange"
         }
     },
     {
@@ -57,7 +64,7 @@ const gNotes = [
             title: ""
         },
         style: {
-            backgroundColor: "#f28b82"
+            backgroundColor: "light-blue"
         }
     },
     {
@@ -67,9 +74,6 @@ const gNotes = [
             url: "https://images7.memedroid.com/images/UPLOADED952/5dea9e3e37e82.jpeg",
             title: ""
         },
-        style: {
-            backgroundColor: "#f28b82"
-        }
     },
     {
         id: "n108",
@@ -78,9 +82,6 @@ const gNotes = [
             url: "https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1175550351.jpg",
             title: ""
         },
-        style: {
-            backgroundColor: "#fff475"
-        }
     },
     {
         id: "n109",
@@ -89,9 +90,6 @@ const gNotes = [
             url: "https://www.youtube.com/watch?v=NxqDMDF59Lo",
             title: ""
         },
-        style: {
-            backgroundColor: "#aecbfa"
-        }
     }
 ]
 const KEY = 'notesDB'
@@ -110,7 +108,7 @@ function addNewNote(note) {
     const notes = storageService.loadFromStorage(KEY)
     if (note.type === 'note-todos') {
         let todos = note.info.todos.split(',')
-        todos = todos.map(todo => ({ txt: todo.trim(), doneAt: null, id: utilService.makeId() }))
+        todos = todos.map(todo => ({ txt: todo.trim(), doneAt: null }))
         note.info.todos = todos
     }
     notes.unshift(note)
@@ -118,14 +116,13 @@ function addNewNote(note) {
     return Promise.resolve()
 }
 
-//!!Dogshit
-// function toggleTodo(todoId) {
-//     const notes = storageService.loadFromStorage(KEY)
-//     const todoNotes = notes.filter(note => note.type === 'note-todo')
-//     const todo = todoNotes.find(note => note.info.todos.find(todo => todo.id === todoId))
+function toggleTodo(noteId, todoIdx) {
+    const notes = storageService.loadFromStorage(KEY)
+    const note = notes.find(note => note.id === noteId)
+    const todo = note.info.todos[todoIdx]
 
-//     todo.doneAt = todo.doneAt ? null : new Date()
-//     saveToStorage(KEY,notes)
+    todo.doneAt = todo.doneAt ? null : new Date()
+    storageService.saveToStorage(KEY, notes)
 
-//     return Promise.resolve()
-// }
+    return Promise.resolve()
+}

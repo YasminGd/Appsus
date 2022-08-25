@@ -1,0 +1,13 @@
+.note-todos input:hover {
+    cursor: pointer;
+}
+
+.note-todos label:hover {
+    cursor: pointer;
+}
+
+.note-todos input {
+    margin-inline-end: 10px;
+}
+
+

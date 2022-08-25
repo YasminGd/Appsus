@@ -1,9 +1,10 @@
+import { NoteControls } from "./note-controls.jsx"
 import { NoteImg } from "./note-img.jsx"
 import { NoteTodos } from "./note-todos.jsx"
 import { NoteTxt } from "./note-txt.jsx"
 import { NoteVideo } from "./note-video.jsx"
 
-export function NotePreview({ note }) {
+export function NotePreview({ note, onToggleTodo }) {
 
     function getNoteType(type) {
         switch (type) {
@@ -20,5 +21,8 @@ export function NotePreview({ note }) {
 
     const DynamicCmp = getNoteType(note.type)
 
-    return <DynamicCmp info={note.info} />
+    return <section class="note-preview-full">
+        <DynamicCmp info={note.info} id={note.id} onToggleTodo={onToggleTodo} />
+        <NoteControls />
+    </section>
 }

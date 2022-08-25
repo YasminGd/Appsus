@@ -1,0 +1,25 @@
+.note-controls {
+    position: absolute;
+    padding: 0;
+    bottom: 5px;
+    left: 5px;
+    /* background-color: grey; */
+    width: 100%;
+}
+
+.control-container {
+    color: #202124;
+    opacity: 0.71;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.28s;
+}
+
+.control-container:hover {
+    background-color: rgba(95, 99, 104, 0.157);
+    cursor: pointer;
+}
