@@ -1,3 +1,11 @@
 .mail-details {
   display: flex;
 }
+
+.mail-details-content {
+  display: flex;
+}
+
+.mail-details-icons .back-icon-mail-details {
+  font-size: 20px;
+}
