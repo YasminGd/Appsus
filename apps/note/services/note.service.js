@@ -4,7 +4,8 @@ import { utilService } from '../../../services/util.service.js'
 export const noteService = {
     query,
     addNewNote,
-    toggleTodo
+    toggleTodo,
+    removeNote
 }
 
 const gNotes = [
@@ -21,7 +22,7 @@ const gNotes = [
         id: "n102",
         type: "note-img",
         info: {
-            url: "https://wompampsupport.azureedge.net/fetchimage?siteId=7575&v=2&jpgQuality=100&width=700&url=https%3A%2F%2Fi.kym-cdn.com%2Fentries%2Ficons%2Fmobile%2F000%2F022%2F134%2Felmo.jpg",
+            url: "https://serving.photos.photobox.com/434591125f8a5ca2dfd6e90fdfa495f52bb5e08a1e05c5b337485f651ceff0384dca570c.jpg",
             title: "YEs"
         },
         style: {
@@ -124,5 +125,12 @@ function toggleTodo(noteId, todoIdx) {
     todo.doneAt = todo.doneAt ? null : new Date()
     storageService.saveToStorage(KEY, notes)
 
+    return Promise.resolve()
+}
+
+function removeNote(id) {
+    let notes = storageService.loadFromStorage(KEY)
+    notes = notes.filter(note => note.id !== id)
+    storageService.saveToStorage(KEY, notes)
     return Promise.resolve()
 }

@@ -21,8 +21,7 @@ export function NotePreview({ note, onToggleTodo }) {
 
     const DynamicCmp = getNoteType(note.type)
 
-    return <section class="note-preview-full">
+    return <section>
         <DynamicCmp info={note.info} id={note.id} onToggleTodo={onToggleTodo} />
-        <NoteControls />
     </section>
 }

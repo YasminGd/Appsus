@@ -1,0 +1,17 @@
+.color-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: white;
+    padding: 5px;
+    gap: 5px;
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: 100;
+}
+
+.color-options div {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+}
