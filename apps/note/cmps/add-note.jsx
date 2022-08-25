@@ -79,12 +79,12 @@ export class AddNote extends React.Component {
         const name = this.getInputNameAndVal()
 
         return <section className="add-note">
-            <section class="input-container">
+            <section className="input-container">
                 <TypeOfNotesIcons onChangeTypeOfNote={this.resetNote} />
                 <form onSubmit={this.onAddNewNote} className="inputs">
                     <input type="text" placeholder="Title" name="title" value={title} onChange={this.handleChange} />
                     <input type="text" placeholder={placeholder} name={name} value={this.state.info[name]} onChange={this.handleChange} />
-                    <button>Create</button>
+                    <button className="add-note-button">Create</button>
                 </form>
             </section>
         </section>

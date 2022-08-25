@@ -92,6 +92,30 @@ const gNotes = [
             url: "https://www.youtube.com/watch?v=NxqDMDF59Lo",
             title: ""
         },
+    }, {
+        id: "n110",
+        type: "note-txt",
+        isPinned: true,
+        info: {
+            title: "Hello!",
+            subject: "From mars"
+        }
+    }, {
+        id: "n111",
+        type: "note-txt",
+        isPinned: true,
+        info: {
+            title: "Rubber duck debuggin",
+            subject: "In software engineering, rubber duck debugging (or rubberducking) is a method of debugging code by articulating a problem in spoken or written natural language. The name is a reference to a story in the book The Pragmatic Programmer in which a programmer would carry around a rubber duck and debug their code by forcing themselves to explain it, line-by-line, to the duck.[1] Many other terms exist for this technique, often involving different (usually) inanimate objects, or pets such as a dog or a cat.Many programmers have had the experience of explaining a problem to someone else, possibly even to someone who knows nothing about programming, and then hitting upon the solution in the process of explaining the problem.In describing what the code is supposed to do and observing what it actually does, any incongruity between these two becomes apparent.[2] More generally, teaching a subject forces its evaluation from different perspectives and can provide a deeper understanding.[3] By using an inanimate object, the programmer can try to accomplish this without having to interrupt anyone else.This approach has been taught in computer science and software engineering courses."
+        }
+    },
+    {
+        id: "n112",
+        type: "note-video",
+        info: {
+            url: "https://www.youtube.com/watch?v=t9d1Sm7h1s4",
+            title: "One day"
+        },
     }
 ]
 const KEY = 'notesDB'
