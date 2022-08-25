@@ -36,6 +36,9 @@ const gNotes = [
                 { txt: "Move back home", doneAt: null, id: utilService.makeId() },
                 { txt: "Pet a cat", doneAt: 187111111, id: utilService.makeId() }
             ]
+        },
+        style: {
+            backgroundColor: "#d7aefb"
         }
     },
     {
@@ -47,6 +50,9 @@ const gNotes = [
                 { txt: "ajax", doneAt: null, id: utilService.makeId() },
                 { txt: "CRUDL", doneAt: 187111111, id: utilService.makeId() }
             ]
+        },
+        style: {
+            backgroundColor: "#f28b82"
         }
     },
     {
