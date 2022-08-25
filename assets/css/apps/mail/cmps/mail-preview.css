@@ -10,6 +10,7 @@
   font-size: 14px;
   width: 80vw;
   cursor: pointer;
+  position: relative;
 }
 
 .mail-preview:hover {
