@@ -16,17 +16,16 @@ export class MailApp extends React.Component {
 
   loadMails = () => {
     const { filterBy } = this.state
-    mailService.query(filterBy).then((mails) =>
-      this.setState({ mails }, () => {
-        console.log(`mails:`, mails)
-      })
-    )
+    mailService.query(filterBy).then((mails) => this.setState({ mails }))
   }
 
   onRemoveMail = (ev, mailId) => {
     ev.stopPropagation()
     mailService.removeMail(mailId).then((mail) => {
-      if (mail) this.loadMails()
+      if (mail) {
+        this.loadMails()
+        return
+      }
       const mails = this.state.mails.filter((mail) => mail.id !== mailId)
       this.setState({ mails })
     })

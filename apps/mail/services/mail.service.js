@@ -44,21 +44,20 @@ const gMails = [
 
 function query(filterBy) {
   let mails = _loadMailsFromStorage()
-  console.log(`mails:`, mails)
   if (!mails || !mails.length) {
     mails = gMails
     _saveMailsToStorage(mails)
   }
 
-  if (filterBy) {
-    let { keyword } = filterBy
-    mails = mails.filter((mail) => {
-      return (
-        mail.subject.toLowerCase().includes(keyword.toLowerCase()) ||
-        mail.body.toLowerCase().includes(keyword.toLowerCase())
-      )
-    })
-  }
+  // if (filterBy) {
+  //   let { keyword } = filterBy
+  //   mails = mails.filter((mail) => {
+  //     return (
+  //       mail.subject.toLowerCase().includes(keyword.toLowerCase()) ||
+  //       mail.body.toLowerCase().includes(keyword.toLowerCase())
+  //     )
+  //   })
+  // }
 
   return Promise.resolve(mails)
 }
@@ -82,18 +81,25 @@ function getMailById(mailId) {
 function removeMail(mailId) {
   return getMailById(mailId).then((mail) => {
     if (!mail.removedAt) {
-      let mails = _loadMailsFromStorage
-      // mails.map(mail => )
       mail.removedAt = Date.now()
+      updateMail(mail)
       return Promise.resolve(mail)
     } else {
-      console.log('removed')
       let mails = _loadMailsFromStorage()
-      mails = mails.filter((mail) => mail.id === mailId)
+      mails = mails.filter((mail) => mail.id !== mailId)
       _saveMailsToStorage(mails)
       return Promise.resolve()
     }
   })
+}
+
+function updateMail(mailToUpdate) {
+  let mails = _loadMailsFromStorage()
+  mails = mails.map((mail) =>
+    mail.id === mailToUpdate.id ? mailToUpdate : mail
+  )
+  _saveMailsToStorage(mails)
+  return Promise.resolve(mailToUpdate)
 }
 
 function _saveMailsToStorage(mails) {
