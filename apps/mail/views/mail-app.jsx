@@ -21,7 +21,6 @@ export class MailApp extends React.Component {
 
   onRemoveMail = (ev, mailId) => {
     ev.preventDefault()
-    ev.stopPropagation()
     mailService.removeMail(mailId).then((mail) => {
       if (mail) {
         this.loadMails()
@@ -32,13 +31,22 @@ export class MailApp extends React.Component {
     })
   }
 
+  onToggleStarredMail = (ev, mailId) => {
+    ev.preventDefault()
+    mailService.toggleStarredMail(mailId).then(this.loadMails)
+  }
+
   render() {
     const { mails } = this.state
     return (
       <section className="mail-app">
         {/* <MailFilter /> */}
         <MailFolderList />
-        <MailList mails={mails} onRemoveMail={this.onRemoveMail} />
+        <MailList
+          mails={mails}
+          onRemoveMail={this.onRemoveMail}
+          onToggleStarredMail={this.onToggleStarredMail}
+        />
         {/* <MailCompose /> */}
       </section>
     )

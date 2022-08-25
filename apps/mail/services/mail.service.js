@@ -4,6 +4,7 @@ export const mailService = {
   query,
   removeMail,
   getMailById,
+  toggleStarredMail,
 }
 
 const KEY = 'mailsDB'
@@ -19,6 +20,7 @@ const gMails = [
     subject: 'Publicly Accessible Google API Key for TravelTip',
     body: 'Would love to catch up sometimes, Would love to catch up sometimes.',
     isRead: false,
+    isStarred: true,
     sentAt: 1551133930594,
     to: 'momo@momo.com',
     from: 'yasmin@gudha.com',
@@ -28,6 +30,7 @@ const gMails = [
     subject: 'Love you!',
     body: 'Would love to catch up sometimes',
     isRead: false,
+    isStarred: false,
     sentAt: 1551133930594,
     to: 'momo@momo.com',
     from: 'bar@ohayon.com',
@@ -37,6 +40,7 @@ const gMails = [
     subject: 'How Are you?',
     body: 'Hope you doing well',
     isRead: false,
+    isStarred: true,
     sentAt: 1551133930594,
     to: 'momo@momo.com',
     from: 'bar@ohayon.com',
@@ -101,6 +105,14 @@ function updateMail(mailToUpdate) {
   )
   _saveMailsToStorage(mails)
   return Promise.resolve(mailToUpdate)
+}
+
+function toggleStarredMail(mailId) {
+  return getMailById(mailId).then((mail) => {
+    mail.isStarred = !mail.isStarred
+    updateMail(mail)
+    return Promise.resolve()
+  })
 }
 
 function _saveMailsToStorage(mails) {
