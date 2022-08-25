@@ -22,6 +22,16 @@ export class NoteApp extends React.Component {
             .then(this.loadNotes())
     }
 
+    onRemoveNote = (noteId) => {
+        noteService.removeNote(noteId)
+            .then(() => {
+                let { notes } = this.state
+                notes = notes.filter(note => note.id !== noteId)
+                this.setState({ notes })
+            }
+            )
+    }
+
     onToggleTodo = (noteId, todoIdx) => {
         noteService.toggleTodo(noteId, todoIdx)
             .then(this.loadNotes)
@@ -31,7 +41,7 @@ export class NoteApp extends React.Component {
         const { notes } = this.state
         return <section className="note-app">
             <AddNote onAddNewNote={this.onAddNewNote} />
-            <NoteList notes={notes} onToggleTodo={this.onToggleTodo}/>
+            <NoteList notes={notes} onToggleTodo={this.onToggleTodo} onRemoveNote={this.onRemoveNote} />
         </section>
     }
 }
