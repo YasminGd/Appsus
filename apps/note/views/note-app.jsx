@@ -17,11 +17,16 @@ export class NoteApp extends React.Component {
             .then(notes => this.setState({ notes }))
     }
 
+    onAddNewNote = (note) => {
+        noteService.addNewNote(note)
+            .then(this.loadNotes())
+    }
+
     render() {
         const { notes } = this.state
         return <section className="note-app">
-            <AddNote />
-            <NoteList notes={notes}/>
+            <AddNote onAddNewNote={this.onAddNewNote} />
+            <NoteList notes={notes} />
         </section>
     }
 }

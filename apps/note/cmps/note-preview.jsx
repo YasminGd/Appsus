@@ -20,7 +20,5 @@ export function NotePreview({ note }) {
 
     const DynamicCmp = getNoteType(note.type)
 
-    return <React.Fragment>
-        <DynamicCmp info={note.info} />
-    </ React.Fragment>
+    return <DynamicCmp info={note.info} />
 }
