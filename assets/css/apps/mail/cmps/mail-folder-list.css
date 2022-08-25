@@ -1,9 +1,13 @@
 .mail-folder-list {
-  width: 250px;
+  width: 180px;
+  /* height: 100%; */
 }
 
 .fixed-mail-folder-list {
   position: fixed;
+  width: 180px;
+  height: 100%;
+  background-color: #f6f8fc;
 }
 
 .mail-folder-list .compose-mail {
@@ -17,10 +21,11 @@
   letter-spacing: 0.25px;
   width: 145px;
   height: 48px;
-  border-radius: 24px;
+  border-radius: 14px;
   line-height: 32px;
   padding: 14px;
   cursor: pointer;
+  background-color: #c2e7ff;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
@@ -33,14 +38,13 @@
 }
 
 .mail-folder-list .compose-mail:hover {
-  box-shadow: 0 1px 3px 0rgba (60, 64, 67, 0.302),
-    0 4px 8px 3px rgba(60, 64, 67, 0.149);
-  background-color: rgba(60, 64, 67, 0.027);
+  box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
+  transition: box-shadow 0.08s;
 }
 
 .mail-folder-list .compose-mail .compose-img {
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 30px;
 }
 
 .mail-folder-list .mail-types-container {
@@ -51,7 +55,7 @@
 }
 
 .mail-folder-list .mail-types-container > * {
-  width: 190px;
+  width: 180px;
   height: 32px;
 }
 
