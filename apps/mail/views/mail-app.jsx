@@ -20,6 +20,7 @@ export class MailApp extends React.Component {
   }
 
   onRemoveMail = (ev, mailId) => {
+    ev.preventDefault()
     ev.stopPropagation()
     mailService.removeMail(mailId).then((mail) => {
       if (mail) {

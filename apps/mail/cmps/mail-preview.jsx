@@ -7,7 +7,7 @@ export function MailPreview({ mail, props }) {
   const { onRemoveMail } = props
   const isReadClassName = isRead ? 'read' : 'unread'
   return (
-    <Link to="/mail/singleMail">
+    <Link to={`/mail/${mail.id}`}>
       <article className="mail-preview">
         <div className="star-img-container">
           <img src="../../../assets/img/mail/star-icon.png" alt="" />
