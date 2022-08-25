@@ -22,11 +22,16 @@ export class NoteApp extends React.Component {
             .then(this.loadNotes())
     }
 
+    onToggleTodo = (noteId, todoIdx) => {
+        noteService.toggleTodo(noteId, todoIdx)
+            .then(this.loadNotes)
+    }
+
     render() {
         const { notes } = this.state
         return <section className="note-app">
             <AddNote onAddNewNote={this.onAddNewNote} />
-            <NoteList notes={notes} />
+            <NoteList notes={notes} onToggleTodo={this.onToggleTodo}/>
         </section>
     }
 }

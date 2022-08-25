@@ -11,6 +11,7 @@ export class AddNote extends React.Component {
             url: '',
             todos: []
         },
+
     }
 
     handleChange = ({ target }) => {
@@ -41,7 +42,8 @@ export class AddNote extends React.Component {
                 url: '',
                 todos: ''
             },
-        }, this.resetSecondaryInput)
+        }
+        )
     }
 
     getInputNameAndVal = () => {
