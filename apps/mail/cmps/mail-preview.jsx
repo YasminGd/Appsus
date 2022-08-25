@@ -1,9 +1,10 @@
 import { utilService } from '../../../services/util.service.js'
 const { Link } = ReactRouterDOM
 
-export function MailPreview({ mail }) {
-  console.log(`mail:`, mail)
+export function MailPreview({ mail, props }) {
+  // console.log(`mail:`, mail)
   const { from, to, subject, body, sentAt, isRead, id } = mail
+  const { onRemoveMail } = props
   const isReadClassName = isRead ? 'read' : 'unread'
   return (
     <Link to="/mail/singleMail">
@@ -19,7 +20,10 @@ export function MailPreview({ mail }) {
         <span className="mail-date">
           {utilService.getFormattedTime(sentAt)}
         </span>
-        <div className="trash-img-container">
+        <div
+          className="trash-img-container"
+          onClick={(ev) => onRemoveMail(ev, id)}
+        >
           <img src="../../../assets/img/mail/trash-icon.png" />
         </div>
         <div className="read-img-container">

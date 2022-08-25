@@ -4,7 +4,10 @@ export function MailList(props) {
   const { mails } = props
   return (
     <ul className="mail-list">
-      {mails && mails.map((mail) => <MailPreview key={mail.id} mail={mail} />)}
+      {mails &&
+        mails.map((mail) => (
+          <MailPreview key={mail.id} mail={mail} props={props} />
+        ))}
     </ul>
   )
 }

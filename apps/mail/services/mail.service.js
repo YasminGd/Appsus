@@ -2,6 +2,7 @@ import { storageService } from '../../../services/storage.service.js'
 
 export const mailService = {
   query,
+  removeMail,
 }
 
 const KEY = 'mailsDB'
@@ -43,6 +44,7 @@ const gMails = [
 
 function query(filterBy) {
   let mails = _loadMailsFromStorage()
+  console.log(`mails:`, mails)
   if (!mails || !mails.length) {
     mails = gMails
     _saveMailsToStorage(mails)
@@ -68,6 +70,30 @@ const criteria = {
   // (optional property, if missing: show all)
   isStared: true, // (optional property, if missing: show all)
   lables: ['important', 'romantic'], // has any of the labels
+}
+
+function getMailById(mailId) {
+  if (!mailId) return Promise.resolve(null)
+  const mails = _loadMailsFromStorage()
+  const mail = mails.find((mail) => mailId === mail.id)
+  return Promise.resolve(mail)
+}
+
+function removeMail(mailId) {
+  return getMailById(mailId).then((mail) => {
+    if (!mail.removedAt) {
+      let mails = _loadMailsFromStorage
+      // mails.map(mail => )
+      mail.removedAt = Date.now()
+      return Promise.resolve(mail)
+    } else {
+      console.log('removed')
+      let mails = _loadMailsFromStorage()
+      mails = mails.filter((mail) => mail.id === mailId)
+      _saveMailsToStorage(mails)
+      return Promise.resolve()
+    }
+  })
 }
 
 function _saveMailsToStorage(mails) {
