@@ -5,7 +5,8 @@ export const noteService = {
     query,
     addNewNote,
     toggleTodo,
-    removeNote
+    removeNote,
+    setColor
 }
 
 const gNotes = [
@@ -132,5 +133,15 @@ function removeNote(id) {
     let notes = storageService.loadFromStorage(KEY)
     notes = notes.filter(note => note.id !== id)
     storageService.saveToStorage(KEY, notes)
+    return Promise.resolve()
+}
+
+function setColor(color, id) {
+    const notes = storageService.loadFromStorage(KEY)
+    const note = notes.find(note => note.id === id)
+    if (!note.style) note.style = { backgroundColor: color }
+    else note.style.backgroundColor = color
+    storageService.saveToStorage(KEY, notes)
+
     return Promise.resolve()
 }
