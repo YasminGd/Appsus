@@ -73,7 +73,7 @@ const gNotes = [
         id: "n107",
         type: "note-img",
         info: {
-            url: "https://images7.memedroid.com/images/UPLOADED952/5dea9e3e37e82.jpeg",
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Saturn_with_head_protected_by_winter_cloak%2C_holding_a_scythe_in_his_right_hand%2C_fresco_from_the_House_of_the_Dioscuri_at_Pompeii%2C_Naples_Archaeological_Museum_%2823497733210%29.jpg/640px-thumbnail.jpg",
             title: ""
         },
     },
