@@ -4,9 +4,12 @@ import { NoteTodos } from "./note-todos.jsx"
 import { NoteTxt } from "./note-txt.jsx"
 import { NoteVideo } from "./note-video.jsx"
 
-export function NotePreview({ note, onToggleTodo }) {
+export class NotePreview extends React.Component {
+    state = {
+        isControlsShown: false
+    }
 
-    function getNoteType(type) {
+    getNoteType = (type) => {
         switch (type) {
             case 'note-txt':
                 return NoteTxt
@@ -19,9 +22,20 @@ export function NotePreview({ note, onToggleTodo }) {
         }
     }
 
-    const DynamicCmp = getNoteType(note.type)
+    toggleControls = () => {
+        this.setState((prevState) => ({ isControlsShown: !prevState.isControlsShown }))
+    }
 
-    return <section>
-        <DynamicCmp info={note.info} id={note.id} onToggleTodo={onToggleTodo} />
-    </section>
+    render() {
+        const { note, onToggleTodo, onRemoveNote, onSetColor } = this.props
+        const { isControlsShown } = this.state
+        const DynamicCmp = this.getNoteType(note.type)
+        const bgcolorTag = note.style ? note.style.backgroundColor : ''
+        const borderTag = bgcolorTag && note.type !== 'note-img' ? 'border-invisible' : 'border-visible'
+
+        return <section className={`note-preview ${bgcolorTag} ${borderTag}`} onMouseEnter={this.toggleControls} onMouseLeave={this.toggleControls}>
+            <DynamicCmp info={note.info} id={note.id} onToggleTodo={onToggleTodo} />
+            {isControlsShown && <NoteControls onRemoveNote={onRemoveNote} note={note} onSetColor={onSetColor} />}
+        </section>
+    }
 }

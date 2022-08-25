@@ -37,11 +37,16 @@ export class NoteApp extends React.Component {
             .then(this.loadNotes)
     }
 
+    onSetColor = (color, noteId) => {
+        noteService.setColor(color, noteId)
+            .then(this.loadNotes)
+    }
+
     render() {
         const { notes } = this.state
         return <section className="note-app">
             <AddNote onAddNewNote={this.onAddNewNote} />
-            <NoteList notes={notes} onToggleTodo={this.onToggleTodo} onRemoveNote={this.onRemoveNote} />
+            <NoteList notes={notes} onToggleTodo={this.onToggleTodo} onRemoveNote={this.onRemoveNote} onSetColor={this.onSetColor}/>
         </section>
     }
 }

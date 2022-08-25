@@ -5,10 +5,17 @@ export class NoteControls extends React.Component {
         isColorOptionsOpen: false
     }
 
+    toggleColorOptions = () => {
+        this.setState((prevState) => ({ isColorOptionsOpen: !prevState.isColorOptionsOpen }))
+    }
+
     render() {
+        const { onRemoveNote, note,onSetColor } = this.props
+
         return <section className="note-controls">
-            <div className="control-container"><i class="fa-solid fa-palette"></i></div>
-            {this.state.isColorOptionsOpen && <ColorOptions />}
+            <div className="control-container" onClick={this.toggleColorOptions}><i class="fa-solid fa-palette"></i></div>
+            <div className="control-container" onClick={() => onRemoveNote(note.id)}><i class="fa-solid fa-trash"></i></div>
+            {this.state.isColorOptionsOpen && <ColorOptions onSetColor={onSetColor} noteId={note.id} />}
         </section>
     }
 }
