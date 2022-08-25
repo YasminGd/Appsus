@@ -3,6 +3,7 @@ import { storageService } from '../../../services/storage.service.js'
 export const mailService = {
   query,
   removeMail,
+  getMailById,
 }
 
 const KEY = 'mailsDB'
