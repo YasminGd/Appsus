@@ -1,16 +1,20 @@
 export function NoteTodos({ info, id, onToggleTodo }) {
 
+    const unCheckedInput = '../../../assets/img/note/unchecked-input.svg'
+    const checkedInput = '../../../assets/img/note/checked-input.svg'
+
     return <article className="note-todos">
-        <h1>{info.title}</h1>
+        <p className="title">{info.title}</p>
         <ul>
             {
                 info.todos.map((todo, idx) => {
                     const crossedOutClass = todo.doneAt ? 'crossed-out' : ''
-                    const isChecked = todo.doneAt ? true : false
+                    const imgSource = todo.doneAt ? checkedInput : unCheckedInput
 
                     return <li key={todo.txt} className={crossedOutClass}>
                         <label>
-                            <input onClick={() => onToggleTodo(id, idx)} type="checkbox" checked={isChecked} />
+                            <img src={imgSource} className="checked-img" />
+                            <input onClick={() => onToggleTodo(id, idx)} type="checkbox" />
                             {todo.txt}
                         </label>
                     </li>

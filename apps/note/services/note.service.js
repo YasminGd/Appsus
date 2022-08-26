@@ -6,7 +6,8 @@ export const noteService = {
     addNewNote,
     toggleTodo,
     removeNote,
-    setColor
+    setColor,
+    editNote
 }
 
 const gNotes = [
@@ -17,6 +18,9 @@ const gNotes = [
         info: {
             title: "Fullstack Me Baby!",
             subject: ">:)"
+        },
+        style: {
+            backgroundColor: "white"
         }
     },
     {
@@ -76,6 +80,9 @@ const gNotes = [
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Saturn_with_head_protected_by_winter_cloak%2C_holding_a_scythe_in_his_right_hand%2C_fresco_from_the_House_of_the_Dioscuri_at_Pompeii%2C_Naples_Archaeological_Museum_%2823497733210%29.jpg/640px-thumbnail.jpg",
             title: ""
         },
+        style: {
+            backgroundColor: "white"
+        }
     },
     {
         id: "n108",
@@ -84,6 +91,9 @@ const gNotes = [
             url: "https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1175550351.jpg",
             title: ""
         },
+        style: {
+            backgroundColor: "white"
+        }
     },
     {
         id: "n109",
@@ -92,6 +102,9 @@ const gNotes = [
             url: "https://www.youtube.com/watch?v=NxqDMDF59Lo",
             title: ""
         },
+        style: {
+            backgroundColor: "white"
+        }
     }, {
         id: "n110",
         type: "note-txt",
@@ -99,6 +112,9 @@ const gNotes = [
         info: {
             title: "Hello!",
             subject: "From mars"
+        },
+        style: {
+            backgroundColor: "white"
         }
     }, {
         id: "n111",
@@ -107,6 +123,9 @@ const gNotes = [
             url: "https://www.youtube.com/watch?v=t9d1Sm7h1s4",
             title: "One day"
         },
+        style: {
+            backgroundColor: "white"
+        }
     }
 ]
 const KEY = 'notesDB'
@@ -128,6 +147,7 @@ function addNewNote(note) {
         todos = todos.map(todo => ({ txt: todo.trim(), doneAt: null }))
         note.info.todos = todos
     }
+    note.style = { backgroundColor: 'white' }
     notes.unshift(note)
     storageService.saveToStorage(KEY, notes)
     return Promise.resolve()
@@ -138,7 +158,7 @@ function toggleTodo(noteId, todoIdx) {
     const note = notes.find(note => note.id === noteId)
     const todo = note.info.todos[todoIdx]
 
-    todo.doneAt = todo.doneAt ? null : new Date()
+    todo.doneAt = todo.doneAt ? null : Date.now()
     storageService.saveToStorage(KEY, notes)
 
     return Promise.resolve()
@@ -158,5 +178,12 @@ function setColor(color, id) {
     else note.style.backgroundColor = color
     storageService.saveToStorage(KEY, notes)
 
+    return Promise.resolve()
+}
+
+function editNote(newNote) {
+    let notes = storageService.loadFromStorage(KEY)
+    notes = notes.map(note => note.id === newNote.id ? newNote : note)
+    storageService.saveToStorage(KEY, notes)
     return Promise.resolve()
 }

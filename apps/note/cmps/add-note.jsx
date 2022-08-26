@@ -11,7 +11,6 @@ export class AddNote extends React.Component {
             url: '',
             todos: []
         },
-
     }
 
     handleChange = ({ target }) => {
@@ -46,37 +45,11 @@ export class AddNote extends React.Component {
         )
     }
 
-    getInputNameAndVal = () => {
-        const { type } = this.state
-        switch (type) {
-            case ('note-txt'):
-                return 'subject'
-            case ('note-img'):
-            case ('note-video'):
-                return 'url'
-            case ('note-todos'):
-                return 'todos'
-        }
-    }
-
-    getInputPlaceHolder = () => {
-        const { type } = this.state
-        switch (type) {
-            case ('note-txt'):
-                return 'Take a note...'
-            case ('note-img'):
-                return 'Enter an image link'
-            case ('note-video'):
-                return 'Enter a video link'
-            case ('note-todos'):
-                return 'Enter a list separated by comas'
-        }
-    }
-
     render() {
         const { title } = this.state.info
-        const placeholder = this.getInputPlaceHolder()
-        const name = this.getInputNameAndVal()
+        const { getInputPlaceHolder, getInputNameAndVal } = this.props
+        const placeholder = getInputPlaceHolder(this.state.type)
+        const name = getInputNameAndVal(this.state.type)
 
         return <section className="add-note">
             <section className="input-container">
