@@ -1,0 +1,134 @@
+.mail-compose {
+  position: fixed;
+  bottom: 0;
+  height: 466px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  right: 60px;
+  font-size: 14px;
+  background-color: white;
+  box-shadow: 0px 8px 10px 1px rgb(0 0 0 / 14%),
+    0px 3px 14px 2px rgb(0 0 0 / 12%), 0px 5px 5px -3px rgb(0 0 0 / 20%);
+  border-radius: 8px 8px 0 0;
+}
+
+.mail-compose-heading {
+  height: 40px;
+  background-color: #404040;
+  border-radius: 8px 8px 0 0;
+  color: #b3b3b3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+textarea {
+  border: none;
+  outline: none;
+  border-style: none;
+  border-color: Transparent;
+  overflow: auto;
+  resize: none;
+  font-family: roboto;
+}
+
+.mail-compose-heading .title {
+  color: white;
+}
+
+.mail-compose-heading .close-compose-btn {
+  font-size: 22px;
+  height: 22px;
+  width: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.mail-compose-heading .close-compose-btn:hover {
+  background-color: #737373;
+  color: white;
+}
+
+.mail-compose-form {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.mail-compose-form > * {
+  font-family: roboto;
+}
+
+.mail-compose-form .compose-to,
+.mail-compose-form .compose-subject {
+  height: 40px;
+  width: 94%;
+  align-self: center;
+}
+
+.mail-compose-form .compose-subject {
+  border-top: 0.5px solid rgba(128, 128, 128, 0.28);
+}
+
+.mail-compose-form .compose-to textarea,
+.mail-compose-form .compose-subject textarea {
+  width: 100%;
+  line-height: 40px;
+  font-size: 14px;
+}
+
+.mail-compose-form .compose-body {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mail-compose-form .compose-body textarea {
+  width: 94%;
+  height: 95%;
+  padding: 10px;
+  border-top: 0.5px solid rgba(128, 128, 128, 0.28);
+}
+
+.mail-compose-form .compose-actions {
+  display: flex;
+  height: 60px;
+  justify-self: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 10px 16px;
+}
+
+.compose-actions .compose-send-btn {
+  background-color: #1a73e8;
+  border: none;
+  color: white;
+  width: 97px;
+  height: 36px;
+  border-radius: 5px;
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+.compose-actions .compose-send-btn:hover {
+  box-shadow: 0 1px 2px 0 rgb(26 115 232 / 45%),
+    0 1px 3px 1px rgb(26 115 232 / 30%);
+  background-color: #297be6;
+  outline: 1px solid transparent;
+}
+
+.compose-actions .compose-delete-btn {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.compose-actions .compose-delete-btn:hover {
+  background-color: rgba(128, 128, 128, 0.103);
+}

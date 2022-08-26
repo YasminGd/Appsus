@@ -8,6 +8,7 @@ export class MailApp extends React.Component {
   state = {
     mails: null,
     filterBy: null,
+    isMailComposeOpen: false,
   }
 
   componentDidMount() {
@@ -48,12 +49,17 @@ export class MailApp extends React.Component {
     mailService.setReadMail(mailId).then(this.loadMails)
   }
 
+  onOpenMailCompose = (isOpen) => {
+    if (isOpen) this.setState({ isMailComposeOpen: true })
+    else this.setState({ isMailComposeOpen: false })
+  }
+
   render() {
-    const { mails } = this.state
+    const { mails, isMailComposeOpen } = this.state
     return (
       <section className="mail-app">
         {/* <MailFilter /> */}
-        <MailFolderList />
+        <MailFolderList onOpenMailCompose={this.onOpenMailCompose} />
         <MailList
           mails={mails}
           onRemoveMail={this.onRemoveMail}
@@ -61,7 +67,9 @@ export class MailApp extends React.Component {
           onToggleReadMail={this.onToggleReadMail}
           onSetReadMail={this.onSetReadMail}
         />
-        {/* <MailCompose /> */}
+        {isMailComposeOpen && (
+          <MailCompose onOpenMailCompose={this.onOpenMailCompose} />
+        )}
       </section>
     )
   }
