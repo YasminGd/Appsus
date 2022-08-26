@@ -25,9 +25,10 @@
     color: #202124;
     position: relative;
     width: 238px;
+    cursor: default;
 }
 
-.note-preview>*:not(.note-img):not(.note-video):not(.note-controls) {
+.note-preview>*:not(.note-img):not(.note-video):not(.note-controls):not(.note-pin) {
     padding: 12px 16px 32px 16px;
     /* padding-bottom: 64px; */
 }
@@ -61,7 +62,15 @@
 .note-preview:hover {
     box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 1px 3px 1px;
     border: 1px solid transparent;
-    cursor: pointer;
+    /* cursor: pointer; */
+}
+
+.note-preview:hover .note-controls {
+    opacity: 1;
+}
+
+.note-preview:hover .note-pin {
+    opacity: 0.56;
 }
 
 .note-preview .crossed-out {

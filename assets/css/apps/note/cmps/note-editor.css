@@ -76,3 +76,7 @@
 .edit-note-button:hover {
     background-color: rgba(95, 99, 104, 0.039);
 }
+
+.note-editor .note-pin {
+    opacity: 0.56;
+}
