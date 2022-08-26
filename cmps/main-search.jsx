@@ -1,7 +1,4 @@
-import {
-  updateNoteFilter,
-  updateMailFilter,
-} from './../services/event-bus.service.js'
+import { updateNoteFilter, updateMailFilter } from './../services/event-bus.service.js'
 const { withRouter } = ReactRouterDOM
 
 class _MainSearch extends React.Component {
@@ -31,8 +28,7 @@ class _MainSearch extends React.Component {
   }
 
   updateFilter = () => {
-    if (this.state.currentPage === '/note')
-      updateNoteFilter(this.state.noteFilter)
+    if (this.state.currentPage === '/note') updateNoteFilter(this.state.noteFilter)
     else updateMailFilter(this.state.mailFilter)
   }
 
