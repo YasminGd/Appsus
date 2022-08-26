@@ -81,11 +81,37 @@ const gMails = [
   },
 ]
 
-function query(filterBy) {
+function query(filterBy, filterType) {
   let mails = _loadMailsFromStorage()
   if (!mails || !mails.length) {
     mails = gMails
     _saveMailsToStorage(mails)
+  }
+
+  if (filterType) {
+    switch (filterType) {
+      case 'inbox':
+        mails = mails.filter(
+          (mail) =>
+            mail.to.toLowerCase() === gLoggedInUser.email.toLowerCase() &&
+            !mail.removedAt
+        )
+        break
+      case 'starred':
+        mails = mails.filter((mail) => mail.isStarred && !mail.removedAt)
+        break
+
+      case 'sent':
+        mails = mails.filter(
+          (mail) =>
+            mail.to.toLowerCase() !== gLoggedInUser.email.toLowerCase() &&
+            !mail.removedAt
+        )
+        break
+      case 'trash':
+        mails = mails.filter((mail) => mail.removedAt)
+        break
+    }
   }
 
   if (filterBy) {
@@ -99,15 +125,6 @@ function query(filterBy) {
   }
 
   return Promise.resolve(mails)
-}
-
-const criteria = {
-  status: 'inbox/sent/trash/draft',
-  txt: 'puki', // no need to support complex text search
-  isRead: true,
-  // (optional property, if missing: show all)
-  isStared: true, // (optional property, if missing: show all)
-  lables: ['important', 'romantic'], // has any of the labels
 }
 
 function getMailById(mailId) {
