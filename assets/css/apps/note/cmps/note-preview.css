@@ -14,7 +14,7 @@
 }
 
 .note-preview {
-    width: 100%;
+    width: 240px ;
     border-radius: 0.5rem;
     display: inline-block;
     margin-bottom: 10px;
@@ -24,7 +24,6 @@
     /* overflow: hidden; */
     color: #202124;
     position: relative;
-    width: 238px;
     cursor: default;
 }
 
