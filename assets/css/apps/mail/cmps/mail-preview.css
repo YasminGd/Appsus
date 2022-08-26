@@ -31,8 +31,10 @@
 
 .mail-preview .mail-content {
   width: 0;
-  flex-grow: 1;
+  flex-grow: 0.8;
+  overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .mail-preview .mail-date {

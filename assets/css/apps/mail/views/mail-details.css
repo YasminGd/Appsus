@@ -4,8 +4,72 @@
 
 .mail-details-content {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  padding: 0 50px;
+  width: 100%;
+}
+
+.mail-details-icons {
+  display: flex;
+  margin: 1rem;
+  width: 100%;
+}
+
+.mail-details-icons a {
+  height: 40px;
+  width: 40px;
 }
 
 .mail-details-icons .back-icon-mail-details {
   font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mail-details-icons .trash-icon-mail-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.mail-details-icons .trash-icon-mail-details img {
+  width: 25px;
+  height: 25px;
+}
+
+.mail-details-icons .back-icon-mail-details:hover,
+.mail-details-icons .trash-icon-mail-details:hover {
+  background-color: rgba(128, 128, 128, 0.103);
+  border-radius: 50%;
+}
+
+.mail-details-text {
+  display: grid;
+  width: 100%;
+  padding: 0 30px;
+}
+
+.mail-details-text .subject {
+  font-size: 22px;
+  padding: 20px 0;
+}
+
+.mail-details .from-date-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  color: #5f6368;
+  font-size: 14px;
+}
+
+.mail-details .body {
+  padding: 20px 0;
 }

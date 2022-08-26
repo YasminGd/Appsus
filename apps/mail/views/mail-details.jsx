@@ -20,8 +20,13 @@ export class MailDetails extends React.Component {
     })
   }
 
+  onRemoveMail = () => {
+    const { id } = this.state.mail
+    mailService.removeMail(id).then(this.onGoBack())
+  }
+
   onGoBack = () => {
-    this.props.history.push('/book')
+    this.props.history.push('/mail')
   }
 
   render() {
@@ -40,20 +45,21 @@ export class MailDetails extends React.Component {
             </Link>
             <span
               className="trash-icon-mail-details"
-              onClick={this.onDeleteMail}
+              onClick={this.onRemoveMail}
             >
               <img src="../../../assets/img/mail/trash-icon.png" />
             </span>
           </div>
-          <div className="subject">{subject}</div>
-          <span className="date">{date}</span>
-          <div className="to">
-            to: <span>{to}</span>
+          <div className="mail-details-text">
+            <div className="subject">{subject}</div>
+            <div className="from-date-container">
+              <div className="from">
+                <span>{from}</span>
+              </div>
+              <span className="date">{date}</span>
+            </div>
+            <div className="body">{body}</div>
           </div>
-          <div className="from">
-            from: <span>{from}</span>
-          </div>
-          <div className="body">{body}</div>
         </section>
       </section>
     )
