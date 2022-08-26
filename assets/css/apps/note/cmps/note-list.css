@@ -1,10 +1,13 @@
+.note-lists {
+    width: 100%;
+}
+
 .note-list {
     /* display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center; */
     columns: 238px auto;
-    width: 95%;
     /* height: 100vh; */
     gap: 1px;
     /* max-width: 1440px; */
@@ -12,5 +15,9 @@
     padding: 0 2rem;
     /* display: inline-block; */
     margin: auto;
-    max-width: max-content
+    /* max-width: max-content */
+}
+
+.pinned-note-list {
+    margin-bottom: 50px;
 }

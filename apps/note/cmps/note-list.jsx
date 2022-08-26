@@ -1,7 +1,7 @@
 import { NoteControls } from "./note-controls.jsx";
 import { NotePreview } from "./note-preview.jsx";
 
-export function NoteList({ notes, onToggleTodo, onRemoveNote, onSetColor, onToggleEditing, onCloneNote }) {
+export function NoteList({ notes, onToggleTodo, onRemoveNote, onSetColor, onToggleEditing, onCloneNote, onTogglePinnedNote }) {
 
     return <section className="note-list">
         {
@@ -13,7 +13,8 @@ export function NoteList({ notes, onToggleTodo, onRemoveNote, onSetColor, onTogg
                     onRemoveNote={onRemoveNote}
                     onSetColor={onSetColor}
                     onToggleEditing={onToggleEditing}
-                    onCloneNote={onCloneNote} />
+                    onCloneNote={onCloneNote}
+                    onTogglePinnedNote={onTogglePinnedNote} />
             })
         }
     </section >

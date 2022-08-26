@@ -2,7 +2,8 @@ import { storageService } from '../../../services/storage.service.js'
 import { utilService } from '../../../services/util.service.js'
 
 export const noteService = {
-    query,
+    getNotes,
+    // getPinnedNotes,
     addNewNote,
     toggleTodo,
     removeNote,
@@ -10,7 +11,8 @@ export const noteService = {
     editNote,
     getInputNameAndVal,
     getInputPlaceHolder,
-    cloneNote
+    cloneNote,
+    togglePinnedNote
 }
 
 const gNotes = [
@@ -24,7 +26,8 @@ const gNotes = [
         },
         style: {
             backgroundColor: "white"
-        }
+        },
+        isPinned: false
     },
     {
         id: "n102",
@@ -35,7 +38,8 @@ const gNotes = [
         },
         style: {
             backgroundColor: "dark-blue"
-        }
+        },
+        isPinned: false
     },
     {
         id: "n103",
@@ -49,7 +53,8 @@ const gNotes = [
         },
         style: {
             backgroundColor: "purple"
-        }
+        },
+        isPinned: false
     },
     {
         id: "n104",
@@ -63,7 +68,8 @@ const gNotes = [
         },
         style: {
             backgroundColor: "orange"
-        }
+        },
+        isPinned: false
     },
     {
         id: "n106",
@@ -74,7 +80,8 @@ const gNotes = [
         },
         style: {
             backgroundColor: "light-blue"
-        }
+        },
+        isPinned: false
     },
     {
         id: "n107",
@@ -85,7 +92,8 @@ const gNotes = [
         },
         style: {
             backgroundColor: "white"
-        }
+        },
+        isPinned: false
     },
     {
         id: "n108",
@@ -96,7 +104,8 @@ const gNotes = [
         },
         style: {
             backgroundColor: "white"
-        }
+        },
+        isPinned: false
     },
     {
         id: "n109",
@@ -107,7 +116,8 @@ const gNotes = [
         },
         style: {
             backgroundColor: "white"
-        }
+        },
+        isPinned: false
     }, {
         id: "n110",
         type: "note-txt",
@@ -118,7 +128,8 @@ const gNotes = [
         },
         style: {
             backgroundColor: "white"
-        }
+        },
+        isPinned: false
     }, {
         id: "n111",
         type: "note-video",
@@ -128,29 +139,44 @@ const gNotes = [
         },
         style: {
             backgroundColor: "white"
-        }
+        },
+        isPinned: true
     }
 ]
 const KEY = 'notesDB'
 
-function query() {
+function getNotes(filter, isPinned) {
     let notes = storageService.loadFromStorage(KEY)
     if (!notes) {
         notes = gNotes
         storageService.saveToStorage(KEY, notes)
     }
+    notes = notes.filter(note => {
+        if (note.isPinned === isPinned) {
+            if(!filter) return true
+            let inNote = note.info.title.toLowerCase().includes(filter.toLowerCase())
+            if (note.info.subject) {
+                inNote = inNote || note.info.subject.toLowerCase().includes(filter.toLowerCase())
+            } else if (note.info.todos && note.info.todos.length) {
+                inNote = inNote || note.info.todos.some(todo => todo.txt.toLowerCase().includes(filter))
+            }
+            return inNote
+        }
+        return false
+    })
     return Promise.resolve(notes)
 }
 
 function addNewNote(note) {
-    note.id = utilService.makeId()
     const notes = storageService.loadFromStorage(KEY)
     if (note.type === 'note-todos') {
         let todos = note.info.todos.split(',')
         todos = todos.map(todo => ({ txt: todo.trim(), doneAt: null }))
         note.info.todos = todos
     }
+    note.id = utilService.makeId()
     note.style = { backgroundColor: 'white' }
+    note.isPinned = false
     notes.unshift(note)
     storageService.saveToStorage(KEY, notes)
     return Promise.resolve()
@@ -221,8 +247,16 @@ function cloneNote(id) {
     const note = notes.find(note => note.id === id)
     const noteClone = JSON.parse(JSON.stringify(note))
     noteClone.id = utilService.makeId()
+    noteClone.isPinned = false
     notes.unshift(noteClone)
     storageService.saveToStorage(KEY, notes)
     return Promise.resolve()
+}
 
+function togglePinnedNote(id) {
+    const notes = storageService.loadFromStorage(KEY)
+    const note = notes.find(note => note.id === id)
+    note.isPinned = !note.isPinned
+    storageService.saveToStorage(KEY, notes)
+    return Promise.resolve()
 }

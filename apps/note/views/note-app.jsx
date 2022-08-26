@@ -2,21 +2,32 @@ import { AddNote } from '../cmps/add-note.jsx'
 import { NoteEditor } from '../cmps/note-editor.jsx'
 import { NoteList } from '../cmps/note-list.jsx'
 import { noteService } from '../services/note.service.js'
+import { eventBusService } from './../../../services/event-bus.service.js'
 
 export class NoteApp extends React.Component {
-
+    unsubscribe
     state = {
         notes: [],
-        noteToEdit: null
+        pinnedNotes: [],
+        noteToEdit: null,
+        noteFilter: ''
     }
 
     componentDidMount() {
+        this.unsubscribe = eventBusService.on('update-note-filter', (noteFilter) => this.setState({ noteFilter }, () => this.loadNotes()))
         this.loadNotes()
     }
 
+    componentWillUnmount() {
+        this.unsubscribe()
+    }
+
     loadNotes = () => {
-        noteService.query()
+        const { noteFilter } = this.state
+        noteService.getNotes(noteFilter, false)
             .then(notes => this.setState({ notes }))
+        noteService.getNotes(noteFilter, true)
+            .then(pinnedNotes => this.setState({ pinnedNotes }))
     }
 
     onAddNewNote = (note) => {
@@ -24,13 +35,14 @@ export class NoteApp extends React.Component {
             .then(this.loadNotes())
     }
 
-    onRemoveNote = (ev, noteId) => {
+    onRemoveNote = (ev, noteId, isPinned) => {
         ev.stopPropagation()
         noteService.removeNote(noteId)
             .then(() => {
-                let { notes } = this.state
+                const propertyToBeFiltered = isPinned ? 'pinnedNotes' : 'notes'
+                let notes = this.state[propertyToBeFiltered]
                 notes = notes.filter(note => note.id !== noteId)
-                this.setState({ notes })
+                this.setState({ [propertyToBeFiltered]: notes })
             }
             )
     }
@@ -66,12 +78,33 @@ export class NoteApp extends React.Component {
             .then(this.loadNotes)
     }
 
+    onTogglePinnedNote = (ev, noteId) => {
+        ev.stopPropagation()
+        noteService.togglePinnedNote(noteId)
+            .then(this.loadNotes())
+    }
+
+    onUpdateFilter = (newFilter) => {
+        this.setState({ noteFilter: newFilter }, this.loadNotes)
+    }
+
     render() {
-        const { notes, noteToEdit } = this.state
-        return <section className="note-app">
-            <AddNote onAddNewNote={this.onAddNewNote} />
-            <NoteList notes={notes} onToggleTodo={this.onToggleTodo} onRemoveNote={this.onRemoveNote} onSetColor={this.onSetColor} onToggleEditing={this.onToggleEditing} onCloneNote={this.onCloneNote} />
-            {noteToEdit && <NoteEditor note={noteToEdit} onToggleEditing={this.onToggleEditing} onEditNote={this.onEditNote} />}
+        const { notes, pinnedNotes, noteToEdit } = this.state
+        return <section className="note-app main-layout">
+            < AddNote onAddNewNote={this.onAddNewNote} />
+            {
+                pinnedNotes.length !== 0 &&
+                <React.Fragment>
+                    <p className="list-dividers-p">Pinned</p>
+                    <section className="pinned-note-list">
+                        <NoteList notes={pinnedNotes} onToggleTodo={this.onToggleTodo} onRemoveNote={this.onRemoveNote} onSetColor={this.onSetColor} onToggleEditing={this.onToggleEditing} onCloneNote={this.onCloneNote} onTogglePinnedNote={this.onTogglePinnedNote} />
+                    </section>
+                    {notes.length !== 0 && <p className="list-dividers-p">Others</p>}
+                </React.Fragment>
+            }
+            < NoteList notes={notes} onToggleTodo={this.onToggleTodo} onRemoveNote={this.onRemoveNote} onSetColor={this.onSetColor} onToggleEditing={this.onToggleEditing} onCloneNote={this.onCloneNote} onTogglePinnedNote={this.onTogglePinnedNote} />
+            {noteToEdit && <NoteEditor note={noteToEdit} onToggleEditing={this.onToggleEditing} onEditNote={this.onEditNote} onTogglePinnedNote={this.onTogglePinnedNote} />}
         </section>
+
     }
 }
