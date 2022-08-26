@@ -13,7 +13,6 @@ const KEY = 'mailsDB'
 
 const gLoggedInUser = {
   email: 'user@appsus.com',
-  // fullname: 'Mahatma Appsus'
 }
 
 const gMails = [

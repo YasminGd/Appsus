@@ -2,10 +2,11 @@ const { NavLink } = ReactRouterDOM
 
 export class MailFolderList extends React.Component {
   render() {
+    const { onOpenMailCompose } = this.props
     return (
       <section className="mail-folder-list">
         <section className="fixed-mail-folder-list">
-          <div className="compose-mail">
+          <div className="compose-mail" onClick={() => onOpenMailCompose(true)}>
             <img
               src="../../../assets/img/mail/compose-icon.png"
               className="compose-img"
