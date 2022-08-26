@@ -2,7 +2,11 @@ const { NavLink } = ReactRouterDOM
 
 export class MailFolderList extends React.Component {
   render() {
-    const { onOpenMailCompose } = this.props
+    console.log(`this.props:`, this.props)
+    const { onOpenMailCompose, onGetUnreadMailsCount } = this.props
+    let unreadMailsCount = onGetUnreadMailsCount()
+    unreadMailsCount = unreadMailsCount === 0 ? '' : unreadMailsCount
+    console.log(`unreadMailsCount:`, unreadMailsCount)
     return (
       <section className="mail-folder-list">
         <section className="fixed-mail-folder-list">
@@ -22,6 +26,7 @@ export class MailFolderList extends React.Component {
                   alt=""
                 />
                 <span className="type">Inbox</span>
+                <span className="amount">{unreadMailsCount}</span>
               </div>
             </NavLink>
             <NavLink to="/mail/starred">

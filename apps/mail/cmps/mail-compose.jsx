@@ -65,11 +65,16 @@ export class MailCompose extends React.Component {
             >
               Send
             </button>
-            <img
-              className="compose-delete-btn"
-              src="../../../assets/img/mail/trash-icon.png"
-              alt=""
-            />
+            <div
+              className="compose-delete-btn-container"
+              onClick={this.onCloseMailCompose}
+            >
+              <img
+                className="compose-delete-btn"
+                src="../../../assets/img/mail/trash-icon.png"
+                alt=""
+              />
+            </div>
           </div>
         </form>
       </section>

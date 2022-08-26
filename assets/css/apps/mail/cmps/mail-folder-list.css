@@ -85,6 +85,12 @@
   font-size: 14px;
 }
 
+.mail-folder-list .amount {
+  position: absolute;
+  right: 20px;
+  font-size: 14px;
+}
+
 .mail-folder-list .mail-type-img {
   width: 20px;
   height: 20px;

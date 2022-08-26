@@ -27,7 +27,6 @@ export class MailApp extends React.Component {
 
   loadMails = () => {
     const { filterBy } = this.state
-    console.log(`filterBy:`, filterBy)
     mailService.query(filterBy).then((mails) => this.setState({ mails }))
   }
 
@@ -65,12 +64,19 @@ export class MailApp extends React.Component {
     else this.setState({ isMailComposeOpen: false })
   }
 
+  onGetUnreadMailsCount = () => {
+    return mailService.getUnreadMailsCount()
+  }
+
   render() {
     const { mails, isMailComposeOpen } = this.state
     return (
       <section className="mail-app">
         {/* <MailFilter /> */}
-        <MailFolderList onOpenMailCompose={this.onOpenMailCompose} />
+        <MailFolderList
+          onOpenMailCompose={this.onOpenMailCompose}
+          onGetUnreadMailsCount={this.onGetUnreadMailsCount}
+        />
         <MailList
           mails={mails}
           onRemoveMail={this.onRemoveMail}

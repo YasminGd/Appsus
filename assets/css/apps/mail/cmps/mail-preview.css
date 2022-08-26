@@ -53,7 +53,7 @@
 
 .mail-preview .mail-date {
   position: absolute;
-  right: 25px;
+  right: 10px;
 }
 
 .mail-preview .trash-img-container,
@@ -76,11 +76,11 @@
 }
 
 .mail-preview .trash-img-container {
-  right: 55px;
+  right: 45px;
 }
 
 .mail-preview .read-img-container {
-  right: 25px;
+  right: 15px;
 }
 
 .mail-preview .read-img-container:hover,

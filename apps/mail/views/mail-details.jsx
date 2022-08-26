@@ -29,6 +29,10 @@ export class MailDetails extends React.Component {
     this.props.history.push('/mail')
   }
 
+  onGetUnreadMailsCount = () => {
+    return mailService.getUnreadMailsCount()
+  }
+
   render() {
     const { mail } = this.state
     if (!mail) return <div></div>
@@ -36,7 +40,7 @@ export class MailDetails extends React.Component {
     const date = utilService.getFormattedTime(sentAt)
     return (
       <section className="mail-details">
-        <MailFolderList />
+        <MailFolderList onGetUnreadMailsCount={this.onGetUnreadMailsCount} />
         <section className="mail-details-content">
           <div className="mail-details-icons">
             <Link to={'/mail'} className="back-icon-mail-details">

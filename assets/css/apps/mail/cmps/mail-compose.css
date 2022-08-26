@@ -118,13 +118,21 @@ textarea {
   outline: 1px solid transparent;
 }
 
-.compose-actions .compose-delete-btn {
-  height: 20px;
-  width: 20px;
-  margin-right: 10px;
-  cursor: pointer;
+.compose-actions .compose-delete-btn-container {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.compose-actions .compose-delete-btn:hover {
+.compose-actions .compose-delete-btn-container .compose-delete-btn {
+  height: 20px;
+  width: 20px;
+}
+
+.compose-actions .compose-delete-btn-container:hover {
   background-color: rgba(128, 128, 128, 0.103);
+  border-radius: 50%;
+  cursor: pointer;
 }
