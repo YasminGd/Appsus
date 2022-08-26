@@ -27,7 +27,6 @@ export function updateNoteFilter(filter) {
 }
 
 export function updateMailFilter(filter) {
-  console.log('sssssss')
   eventBusService.emit('update-mail-filter', filter)
 }
 

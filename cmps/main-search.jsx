@@ -1,7 +1,5 @@
-import {
-  updateNoteFilter,
-  updateMailFilter,
-} from './../services/event-bus.service.js'
+//prettier-ignore
+import { updateNoteFilter, updateMailFilter } from './../services/event-bus.service.js'
 const { withRouter } = ReactRouterDOM
 
 class _MainSearch extends React.Component {
