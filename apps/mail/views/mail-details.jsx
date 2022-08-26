@@ -1,4 +1,5 @@
 import { utilService } from '../../../services/util.service.js'
+import { MailCompose } from '../cmps/mail-compose.jsx'
 import { MailFolderList } from '../cmps/mail-folder-list.jsx'
 import { mailService } from '../services/mail.service.js'
 const { Link } = ReactRouterDOM
@@ -6,6 +7,7 @@ const { Link } = ReactRouterDOM
 export class MailDetails extends React.Component {
   state = {
     mail: null,
+    isMailComposeOpen: false,
   }
 
   componentDidMount() {
@@ -15,7 +17,7 @@ export class MailDetails extends React.Component {
   loadMail = () => {
     const { mailId } = this.props.match.params
     mailService.getMailById(mailId).then((mail) => {
-      if (!mail) return this.onGoBack()
+      // if (!mail) return this.onGoBack()
       this.setState({ mail })
     })
   }
@@ -33,14 +35,22 @@ export class MailDetails extends React.Component {
     return mailService.getUnreadMailsCount()
   }
 
+  onOpenMailCompose = (isOpen) => {
+    if (isOpen) this.setState({ isMailComposeOpen: true })
+    else this.setState({ isMailComposeOpen: false })
+  }
+
   render() {
-    const { mail } = this.state
+    const { mail, isMailComposeOpen } = this.state
     if (!mail) return <div></div>
     const { body, from, sentAt, to, subject } = mail
     const date = utilService.getFormattedTime(sentAt)
     return (
       <section className="mail-details">
-        <MailFolderList onGetUnreadMailsCount={this.onGetUnreadMailsCount} />
+        <MailFolderList
+          onGetUnreadMailsCount={this.onGetUnreadMailsCount}
+          onOpenMailCompose={this.onOpenMailCompose}
+        />
         <section className="mail-details-content">
           <div className="mail-details-icons">
             <Link to={'/mail'} className="back-icon-mail-details">
@@ -64,6 +74,12 @@ export class MailDetails extends React.Component {
             <div className="body">{body}</div>
           </div>
         </section>
+        {isMailComposeOpen && (
+          <MailCompose
+            onOpenMailCompose={this.onOpenMailCompose}
+            loadMails={this.loadMails}
+          />
+        )}
       </section>
     )
   }

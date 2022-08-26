@@ -2,14 +2,13 @@ import { utilService } from '../../../services/util.service.js'
 const { Link } = ReactRouterDOM
 
 export function MailPreview({ mail, props }) {
-  // console.log(`mail:`, mail)
   const { from, to, subject, body, sentAt, isRead, isStarred, id } = mail
   const starredClassName = isStarred ? 'yellow' : 'empty'
   const { onRemoveMail, onToggleStarredMail, onToggleReadMail, onSetReadMail } =
     props
   const isReadClassName = isRead ? 'read' : 'unread'
   return (
-    <Link to={`/mail/${mail.id}`}>
+    <Link to={`/mail/details/${mail.id}`}>
       <article
         className={`${isReadClassName} mail-preview`}
         onClick={(ev) => onSetReadMail(ev, id)}

@@ -73,6 +73,37 @@
   align-items: center;
 }
 
+.mail-folder-list a.my-active .inbox > * {
+  color: #d93025;
+  font-family: roboto-bold;
+}
+
+.mail-folder-list a.my-active .mail-type {
+  font-family: roboto-bold;
+}
+
+.mail-folder-list a.my-active .inbox .mail-type-img {
+  content: url('../../../../img/mail/inbox-open-icon.png');
+}
+
+.mail-folder-list a.my-active {
+  background-color: #fce8e6;
+  border-start-end-radius: 25px;
+  border-end-end-radius: 25px;
+  padding-right: 16px;
+}
+
+.mail-folder-list a.my-active:hover {
+  background-color: #fce8e6;
+}
+
+.mail-folder-list a.active {
+  background-color: #e8eaed;
+  border-start-end-radius: 25px;
+  border-end-end-radius: 25px;
+  padding-right: 16px;
+}
+
 .mail-folder-list a:hover {
   background-color: #e8eaed94;
   border-start-end-radius: 25px;
