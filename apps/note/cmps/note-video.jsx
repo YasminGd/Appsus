@@ -7,7 +7,7 @@ export function NoteVideo({ info }) {
             src={`https://www.youtube.com/embed/${link}`} allow="fullscreen;"
             width="100%">
         </iframe>
-        {info.title && <h1>{info.title}</h1>}
+        {info.title && <p className="title">{info.title}</p>}
     </React.Fragment>
     {/* <img src="" /> */ }
 }

@@ -24,6 +24,7 @@
     /* overflow: hidden; */
     color: #202124;
     position: relative;
+    width: 238px;
 }
 
 .note-preview>*:not(.note-img):not(.note-video):not(.note-controls) {
@@ -35,14 +36,37 @@
     margin-bottom: 20px;
 }
 
+.note-preview input {
+    opacity: 0;
+}
+
+.note-preview li {
+    user-select: none;
+    position: relative;
+    color: rgb(32, 33, 36);
+}
+
+.note-preview .checked-img {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 3px;
+    opacity: 0.54;
+}
+
+.note-preview .checked-img:hover {
+    opacity: 0.87;
+}
+
 .note-preview:hover {
     box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 1px 3px 1px;
     border: 1px solid transparent;
     cursor: pointer;
 }
 
-.crossed-out {
+.note-preview .crossed-out {
     text-decoration: line-through;
+    color: #5f6368;
 }
 
 .note-img {
@@ -85,6 +109,22 @@
     background-color: #cbf0f8;
 }
 
+.teal {
+    background-color: #a7ffeb;
+}
+
+.brown {
+    background-color: #e6c9a8;
+}
+
+.grey {
+    background-color: #e8eaed;
+}
+
+.white {
+    background-color: white;
+}
+
 .border-visible {
     border: 1px solid #e0e0e0;
 }
@@ -101,4 +141,18 @@
 .rounded-bottom {
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
+}
+
+.title {
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    line-height: 24px;
+}
+
+.subject {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 24px;
+    padding-top: 4px;
 }

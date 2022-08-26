@@ -8,7 +8,6 @@ import { NoteVideo } from "./note-video.jsx"
 export class NotePreview extends React.Component {
     state = {
         isControlsShown: false,
-        inEditingMode: false
     }
 
     getNoteType = (type) => {
@@ -28,21 +27,16 @@ export class NotePreview extends React.Component {
         this.setState((prevState) => ({ isControlsShown: !prevState.isControlsShown }))
     }
 
-    toggleEditing = () => {
-        this.setState((prevState) => ({ inEditingMode: !prevState.inEditingMode }))
-    }
-
     render() {
-        const { note, onToggleTodo, onRemoveNote, onSetColor } = this.props
-        const { isControlsShown, inEditingMode } = this.state
+        const { note, onToggleTodo, onRemoveNote, onSetColor, onToggleEditing } = this.props
+        const { isControlsShown, } = this.state
         const DynamicCmp = this.getNoteType(note.type)
-        const bgcolorTag = note.style ? note.style.backgroundColor : ''
-        const borderTag = bgcolorTag && note.type !== 'note-img' ? 'border-invisible' : 'border-visible'
+        const bgcolorTag = note.style.backgroundColor
+        const borderTag = bgcolorTag !== 'white'&& (note.type !== 'note-img' || note.type !== 'note-video') ? 'border-invisible' : 'border-visible'
 
-        return <section className={`note-preview ${bgcolorTag} ${borderTag}`} onMouseEnter={this.toggleControls} onMouseLeave={this.toggleControls}>
-            <DynamicCmp info={note.info} id={note.id} onToggleTodo={onToggleTodo} onClick={this.toggleEditing} />
+        return <section className={`note-preview ${bgcolorTag} ${borderTag}`} onMouseEnter={this.toggleControls} onMouseLeave={this.toggleControls} onClick={(event) => onToggleEditing(event, note)}>
+            <DynamicCmp info={note.info} id={note.id} onToggleTodo={onToggleTodo} />
             {isControlsShown && <NoteControls onRemoveNote={onRemoveNote} note={note} onSetColor={onSetColor} />}
-            {inEditingMode && <NoteEditor />}
         </section>
     }
 }

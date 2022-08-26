@@ -1,0 +1,48 @@
+.screen {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.6;
+    background-color: #202124;
+}
+
+.note-editor {
+    display: inline-block;
+    opacity: 1;
+    min-width: 600px;
+    height: 200px;
+    border-radius: 8px;
+    /* border: 1px solid rgb(224, 224, 224); */
+    z-index: 100;
+    position: fixed;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302), 0 4px 8px 3px rgba(60, 64, 67, 0.149);
+}
+
+.note-editor form {
+    height: 100%;
+}
+
+.note-editor input {
+    width: 100%;
+    border: none;
+    font-size: 1.375rem;
+    letter-spacing: 0;
+    line-height: 1.75rem;
+    padding: 16px 16px 12px;
+    background-color: transparent;
+}
+
+.note-editor textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 12px 16px;
+    resize: none;
+    background-color: transparent;
+}

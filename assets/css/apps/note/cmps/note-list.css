@@ -3,10 +3,13 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center; */
-    columns: 7;
+    columns: 238px 7;
     /* height: 100vh; */
     column-gap: 10px;
     /* max-width: 1440px; */
     /* margin: auto; */
     padding: 0 2rem;
+    /* display: inline-block; */
+    margin: auto;
+    max-width: max-content
 }
