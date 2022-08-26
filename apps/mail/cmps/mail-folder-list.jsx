@@ -27,7 +27,7 @@ export class MailFolderList extends React.Component {
               <div className="mail-type">
                 <img
                   className="mail-type-img"
-                  src="../../../assets/img/mail/star-icon.png"
+                  src="../../../assets/img/mail/empty-star-icon.png"
                   alt=""
                 />
                 <span className="type">Starred</span>
