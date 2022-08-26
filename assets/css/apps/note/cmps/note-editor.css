@@ -12,13 +12,13 @@
     display: inline-block;
     opacity: 1;
     min-width: 600px;
-    height: 200px;
+    height: 180px;
     border-radius: 8px;
     /* border: 1px solid rgb(224, 224, 224); */
     z-index: 100;
     position: fixed;
     left: 50%;
-    bottom: 50%;
+    top: 155px;
     transform: translate(-50%, 50%);
     overflow: hidden;
     box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302), 0 4px 8px 3px rgba(60, 64, 67, 0.149);
@@ -38,6 +38,10 @@
     background-color: transparent;
 }
 
+.note-editor input:focus {
+    outline: none;
+}
+
 .note-editor textarea {
     width: 100%;
     height: 100%;
@@ -45,4 +49,30 @@
     padding: 12px 16px;
     resize: none;
     background-color: transparent;
+}
+
+.note-editor textarea:focus {
+    outline: none;
+}
+
+.edit-note-button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    border: transparent;
+    line-height: 1.25rem;
+    margin: 4px;
+    padding: 8px 24px;
+    border-radius: 4px;
+    margin-right: 15px;
+    color: rgba(0,0,0,.87);
+    letter-spacing: .01785714em;
+    height: 36px;
+    font-size: .875rem;
+    font-weight: 500;
+}
+
+.edit-note-button:hover {
+    background-color: rgba(95, 99, 104, 0.039);
 }

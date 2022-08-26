@@ -3,9 +3,10 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center; */
-    columns: 238px 7;
+    columns: 238px auto;
+    width: 95%;
     /* height: 100vh; */
-    column-gap: 10px;
+    gap: 1px;
     /* max-width: 1440px; */
     /* margin: auto; */
     padding: 0 2rem;

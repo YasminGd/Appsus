@@ -1,3 +1,5 @@
+import { noteService } from "../services/note.service.js"
+
 export class NoteEditor extends React.Component {
     state = {
         type: 'note-txt',
@@ -34,9 +36,9 @@ export class NoteEditor extends React.Component {
 
     render() {
         const { info, style, type } = this.state
-        const { onToggleEditing, getInputNameAndVal, getInputPlaceHolder } = this.props
-        const name = getInputNameAndVal(type)
-        const placeholder = type === 'note-txt' ? 'Note' : getInputPlaceHolder(type)
+        const { onToggleEditing } = this.props
+        const name = noteService.getInputNameAndVal(type)
+        const placeholder = type === 'note-txt' ? 'Note' : noteService.getInputPlaceHolder(type)
         const color = style.backgroundColor
 
         return <React.Fragment>
@@ -44,6 +46,7 @@ export class NoteEditor extends React.Component {
                 <form onSubmit={this.onEdit}>
                     <input type="text" value={info.title} onChange={this.handleChange} name="title" placeholder="Title" />
                     <textArea onChange={this.handleChange} name={`${name}`} placeholder={placeholder}>{info[name]}</textArea>
+                    <button className="edit-note-button">Edit</button>
                 </form>
             </section>
             <section className="screen" onClick={(event) => onToggleEditing(event, null)}></section>

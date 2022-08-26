@@ -47,9 +47,8 @@ export class AddNote extends React.Component {
 
     render() {
         const { title } = this.state.info
-        const { getInputPlaceHolder, getInputNameAndVal } = this.props
-        const placeholder = getInputPlaceHolder(this.state.type)
-        const name = getInputNameAndVal(this.state.type)
+        const placeholder = noteService.getInputPlaceHolder(this.state.type)
+        const name = noteService.getInputNameAndVal(this.state.type)
 
         return <section className="add-note">
             <section className="input-container">
