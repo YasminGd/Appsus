@@ -5,11 +5,15 @@ export function MailPreview({ mail, props }) {
   // console.log(`mail:`, mail)
   const { from, to, subject, body, sentAt, isRead, isStarred, id } = mail
   const starredClassName = isStarred ? 'yellow' : 'empty'
-  const { onRemoveMail, onToggleStarredMail, onToggleReadMail } = props
+  const { onRemoveMail, onToggleStarredMail, onToggleReadMail, onSetReadMail } =
+    props
   const isReadClassName = isRead ? 'read' : 'unread'
   return (
     <Link to={`/mail/${mail.id}`}>
-      <article className={`${isReadClassName} mail-preview`}>
+      <article
+        className={`${isReadClassName} mail-preview`}
+        onClick={(ev) => onSetReadMail(ev, id)}
+      >
         <div
           className="star-img-container"
           onClick={(ev) => onToggleStarredMail(ev, id)}

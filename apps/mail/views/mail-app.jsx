@@ -21,6 +21,7 @@ export class MailApp extends React.Component {
 
   onRemoveMail = (ev, mailId) => {
     ev.preventDefault()
+    ev.stopPropagation()
     mailService.removeMail(mailId).then((mail) => {
       if (mail) {
         this.loadMails()
@@ -33,12 +34,18 @@ export class MailApp extends React.Component {
 
   onToggleStarredMail = (ev, mailId) => {
     ev.preventDefault()
+    ev.stopPropagation()
     mailService.toggleStarredMail(mailId).then(this.loadMails)
   }
 
   onToggleReadMail = (ev, mailId) => {
     ev.preventDefault()
+    ev.stopPropagation()
     mailService.toggleReadMail(mailId).then(this.loadMails)
+  }
+
+  onSetReadMail = (ev, mailId) => {
+    mailService.setReadMail(mailId).then(this.loadMails)
   }
 
   render() {
@@ -52,6 +59,7 @@ export class MailApp extends React.Component {
           onRemoveMail={this.onRemoveMail}
           onToggleStarredMail={this.onToggleStarredMail}
           onToggleReadMail={this.onToggleReadMail}
+          onSetReadMail={this.onSetReadMail}
         />
         {/* <MailCompose /> */}
       </section>

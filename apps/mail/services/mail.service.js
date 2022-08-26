@@ -6,6 +6,7 @@ export const mailService = {
   getMailById,
   toggleStarredMail,
   toggleReadMail,
+  setReadMail,
 }
 
 const KEY = 'mailsDB'
@@ -30,7 +31,7 @@ const gMails = [
     id: 'e102',
     subject: 'Love you!',
     body: 'Would love to catch up sometimes',
-    isRead: false,
+    isRead: true,
     isStarred: false,
     sentAt: 1551133930594,
     to: 'momo@momo.com',
@@ -41,6 +42,26 @@ const gMails = [
     subject: 'How Are you?',
     body: 'Hope you doing well',
     isRead: false,
+    isStarred: true,
+    sentAt: 1551133930594,
+    to: 'momo@momo.com',
+    from: 'bar@ohayon.com',
+  },
+  {
+    id: 'e104',
+    subject: 'Reference Code: 20KEA - Date: Wed, 17 Aug 2022',
+    body: 'We have received your request to cancel your tickets that you purchased.',
+    isRead: true,
+    isStarred: false,
+    sentAt: 1551133930594,
+    to: 'momo@momo.com',
+    from: 'bar@ohayon.com',
+  },
+  {
+    id: 'e105',
+    subject: 'Your invoice from Apple.',
+    body: 'iCloud+ with 2 TB of storage',
+    isRead: true,
     isStarred: true,
     sentAt: 1551133930594,
     to: 'momo@momo.com',
@@ -119,6 +140,14 @@ function toggleStarredMail(mailId) {
 function toggleReadMail(mailId) {
   return getMailById(mailId).then((mail) => {
     mail.isRead = !mail.isRead
+    updateMail(mail)
+    return Promise.resolve()
+  })
+}
+
+function setReadMail(mailId) {
+  return getMailById(mailId).then((mail) => {
+    mail.isRead = true
     updateMail(mail)
     return Promise.resolve()
   })

@@ -34,7 +34,7 @@ export class MailDetails extends React.Component {
     if (!mail) return <div></div>
     const { body, from, sentAt, to, subject } = mail
     const date = utilService.formatTime(sentAt)
-    console.log(`mail:`, mail)
+    // console.log(`mail:`, mail)
     return (
       <section className="mail-details">
         <MailFolderList />
