@@ -3,8 +3,10 @@ import { MailFilter } from '../cmps/mail-filter.jsx'
 import { MailFolderList } from '../cmps/mail-folder-list.jsx'
 import { MailList } from '../cmps/mail-list.jsx'
 import { mailService } from '../services/mail.service.js'
+import { eventBusService } from '../../../services/event-bus.service.js'
 
 export class MailApp extends React.Component {
+  unsubscribe
   state = {
     mails: null,
     filterBy: null,
@@ -12,11 +14,20 @@ export class MailApp extends React.Component {
   }
 
   componentDidMount() {
+    this.unsubscribe = eventBusService.on('update-mail-filter', (filterBy) =>
+      this.setState({ filterBy }, () => this.loadMails())
+    )
+
     this.loadMails()
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe()
   }
 
   loadMails = () => {
     const { filterBy } = this.state
+    console.log(`filterBy:`, filterBy)
     mailService.query(filterBy).then((mails) => this.setState({ mails }))
   }
 
