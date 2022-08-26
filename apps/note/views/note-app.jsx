@@ -12,12 +12,18 @@ export class NoteApp extends React.Component {
         notes: [],
         pinnedNotes: [],
         noteToEdit: null,
-        searchFilter: ''
+        searchFilter: '',
+        typeFilter: ''
     }
 
     componentDidMount() {
         this.unsubscribe = eventBusService.on('update-note-filter', (searchFilter) => this.setState({ searchFilter }, () => this.loadNotes()))
-        this.loadNotes()
+        if (this.props.match.params.noteType) this.updateTypeFilter()
+        else this.loadNotes()
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.noteType !== this.props.match.params.noteType) this.updateTypeFilter()
     }
 
     componentWillUnmount() {
@@ -25,11 +31,16 @@ export class NoteApp extends React.Component {
     }
 
     loadNotes = () => {
-        const { searchFilter } = this.state
-        noteService.getNotes(searchFilter, false)
+        const { searchFilter, typeFilter } = this.state
+        noteService.getNotes(searchFilter, typeFilter, false)
             .then(notes => this.setState({ notes }))
-        noteService.getNotes(searchFilter, true)
+        noteService.getNotes(searchFilter, typeFilter, true)
             .then(pinnedNotes => this.setState({ pinnedNotes }))
+    }
+
+    updateTypeFilter() {
+        const noteType = noteService.getNoteType(this.props.match.params.noteType)
+        this.setState({ typeFilter: noteType }, this.loadNotes)
     }
 
     onAddNewNote = (note) => {

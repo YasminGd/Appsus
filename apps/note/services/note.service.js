@@ -12,7 +12,8 @@ export const noteService = {
     getInputNameAndVal,
     getInputPlaceHolder,
     cloneNote,
-    togglePinnedNote
+    togglePinnedNote,
+    getNoteType
 }
 
 const gNotes = [
@@ -145,15 +146,16 @@ const gNotes = [
 ]
 const KEY = 'notesDB'
 
-function getNotes(filter, isPinned) {
+function getNotes(filter, typeFilter, isPinned) {
     let notes = storageService.loadFromStorage(KEY)
     if (!notes) {
         notes = gNotes
         storageService.saveToStorage(KEY, notes)
     }
+    if(typeFilter) notes = notes.filter(note => note.type === typeFilter)
     notes = notes.filter(note => {
         if (note.isPinned === isPinned) {
-            if(!filter) return true
+            if (!filter) return true
             let inNote = note.info.title.toLowerCase().includes(filter.toLowerCase())
             if (note.info.subject) {
                 inNote = inNote || note.info.subject.toLowerCase().includes(filter.toLowerCase())
@@ -259,4 +261,19 @@ function togglePinnedNote(id) {
     note.isPinned = !note.isPinned
     storageService.saveToStorage(KEY, notes)
     return Promise.resolve()
+}
+
+function getNoteType(filter) {
+    switch(filter) {
+        case '':
+            return ''
+        case 'text':
+            return'note-txt'
+        case 'image':
+            return 'note-img'
+        case 'video':
+            return 'note-video'
+        case 'list':
+            return 'note-todos'
+    }
 }

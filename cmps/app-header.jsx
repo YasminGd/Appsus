@@ -4,7 +4,7 @@ import { NavBar } from "./nav-bar.jsx"
 const { Link, NavLink, withRouter } = ReactRouterDOM
 
 export function _AppHeader({ location }) {
-    const isMainSearchShown = location.pathname === '/note' || location.pathname === '/mail'
+    const isMainSearchShown = location.pathname.includes('/note') || location.pathname.includes('/mail')
 
     return < header className="app-header" >
         <div className="left">

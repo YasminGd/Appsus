@@ -22,11 +22,15 @@
     margin: 0 12px;
 }
 
-.filter-container i {
-    font-size: 16px;
+.filter-container img {
+    height: 24px;
+    width: 24px;
 }
 
 .filter-container:hover {
-    background-color: #feefc3;
+    background-color: #f1f3f4;
+}
 
+.filter-container.active {
+    background-color: #feefc3;
 }
