@@ -21,6 +21,9 @@
 
 @import './cmps/user-msg.css';
 @import './cmps/app-header.css';
+@import './cmps/nav-bar.css';
+@import './cmps/nav-menu.css';
+@import './cmps/main-search.css';
 
 /* Mail Cmp */
 

@@ -1,15 +1,17 @@
+import { MainSearch } from "./main-search.jsx"
+import { NavBar } from "./nav-bar.jsx"
+
 const { Link, NavLink, withRouter } = ReactRouterDOM
 export function AppHeader() {
 
     return <header className="app-header">
-        <Link to="/">
-            <h3>LOGO!</h3>
-        </Link>
-        <nav>
-            <NavLink exact to="/">Home</NavLink>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/mail">Email</NavLink>
-            <NavLink to="/note">Notes</NavLink>
-        </nav>
+        <div className="left">
+            <div className="logo">
+                <img src="./../../assets/img/note/logo_keep.png" alt="" />
+                <p>Keep</p>
+            </div>
+            <MainSearch />
+        </div>
+        <NavBar />
     </header>
 }

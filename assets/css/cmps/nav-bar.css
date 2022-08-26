@@ -1,0 +1,13 @@
+.nav-bar {
+    padding: 8px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    color: #5f6368;
+    position: relative;
+}
+
+.nav-bar:hover {
+    background-color: rgba(95, 99, 104, 0.157);
+    cursor: pointer;
+}
