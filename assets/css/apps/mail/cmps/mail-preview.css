@@ -12,6 +12,20 @@
   position: relative;
 }
 
+.mail-preview.unread {
+  background-color: white;
+}
+
+.mail-preview.read {
+  background-color: #f5f7f7;
+}
+
+.mail-preview .mail-address.unread,
+.mail-preview .mail-content .mail-subject.unread,
+.mail-preview .mail-date.unread {
+  font-family: roboto-bold;
+}
+
 .mail-preview:hover {
   color: #202124;
   box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0,

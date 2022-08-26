@@ -5,6 +5,7 @@ export const mailService = {
   removeMail,
   getMailById,
   toggleStarredMail,
+  toggleReadMail,
 }
 
 const KEY = 'mailsDB'
@@ -110,6 +111,14 @@ function updateMail(mailToUpdate) {
 function toggleStarredMail(mailId) {
   return getMailById(mailId).then((mail) => {
     mail.isStarred = !mail.isStarred
+    updateMail(mail)
+    return Promise.resolve()
+  })
+}
+
+function toggleReadMail(mailId) {
+  return getMailById(mailId).then((mail) => {
+    mail.isRead = !mail.isRead
     updateMail(mail)
     return Promise.resolve()
   })

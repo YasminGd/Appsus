@@ -36,6 +36,11 @@ export class MailApp extends React.Component {
     mailService.toggleStarredMail(mailId).then(this.loadMails)
   }
 
+  onToggleReadMail = (ev, mailId) => {
+    ev.preventDefault()
+    mailService.toggleReadMail(mailId).then(this.loadMails)
+  }
+
   render() {
     const { mails } = this.state
     return (
@@ -46,6 +51,7 @@ export class MailApp extends React.Component {
           mails={mails}
           onRemoveMail={this.onRemoveMail}
           onToggleStarredMail={this.onToggleStarredMail}
+          onToggleReadMail={this.onToggleReadMail}
         />
         {/* <MailCompose /> */}
       </section>
