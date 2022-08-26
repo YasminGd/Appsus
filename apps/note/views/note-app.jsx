@@ -60,37 +60,18 @@ export class NoteApp extends React.Component {
             })
     }
 
-    getInputNameAndVal = (type) => {
-        switch (type) {
-            case ('note-txt'):
-                return 'subject'
-            case ('note-img'):
-            case ('note-video'):
-                return 'url'
-            case ('note-todos'):
-                return 'todos'
-        }
-    }
-
-    getInputPlaceHolder = (type) => {
-        switch (type) {
-            case ('note-txt'):
-                return 'Take a note...'
-            case ('note-img'):
-                return 'Enter an image link'
-            case ('note-video'):
-                return 'Enter a video link'
-            case ('note-todos'):
-                return 'Enter a list separated by comas'
-        }
+    onCloneNote = (ev, noteId) => {
+        ev.stopPropagation()
+        noteService.cloneNote(noteId)
+            .then(this.loadNotes)
     }
 
     render() {
         const { notes, noteToEdit } = this.state
         return <section className="note-app">
-            <AddNote onAddNewNote={this.onAddNewNote} getInputNameAndVal={this.getInputNameAndVal} getInputPlaceHolder={this.getInputPlaceHolder} />
-            <NoteList notes={notes} onToggleTodo={this.onToggleTodo} onRemoveNote={this.onRemoveNote} onSetColor={this.onSetColor} onToggleEditing={this.onToggleEditing} />
-            {noteToEdit && <NoteEditor note={noteToEdit} onToggleEditing={this.onToggleEditing} onEditNote={this.onEditNote} getInputNameAndVal={this.getInputNameAndVal} getInputPlaceHolder={this.getInputPlaceHolder}/>}
+            <AddNote onAddNewNote={this.onAddNewNote} />
+            <NoteList notes={notes} onToggleTodo={this.onToggleTodo} onRemoveNote={this.onRemoveNote} onSetColor={this.onSetColor} onToggleEditing={this.onToggleEditing} onCloneNote={this.onCloneNote} />
+            {noteToEdit && <NoteEditor note={noteToEdit} onToggleEditing={this.onToggleEditing} onEditNote={this.onEditNote} />}
         </section>
     }
 }

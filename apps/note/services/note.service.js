@@ -7,7 +7,10 @@ export const noteService = {
     toggleTodo,
     removeNote,
     setColor,
-    editNote
+    editNote,
+    getInputNameAndVal,
+    getInputPlaceHolder,
+    cloneNote
 }
 
 const gNotes = [
@@ -186,4 +189,40 @@ function editNote(newNote) {
     notes = notes.map(note => note.id === newNote.id ? newNote : note)
     storageService.saveToStorage(KEY, notes)
     return Promise.resolve()
+}
+
+function getInputNameAndVal(type) {
+    switch (type) {
+        case ('note-txt'):
+            return 'subject'
+        case ('note-img'):
+        case ('note-video'):
+            return 'url'
+        case ('note-todos'):
+            return 'todos'
+    }
+}
+
+function getInputPlaceHolder(type) {
+    switch (type) {
+        case ('note-txt'):
+            return 'Take a note...'
+        case ('note-img'):
+            return 'Enter an image link'
+        case ('note-video'):
+            return 'Enter a video link'
+        case ('note-todos'):
+            return 'Enter a list separated by comas'
+    }
+}
+
+function cloneNote(id) {
+    const notes = storageService.loadFromStorage(KEY)
+    const note = notes.find(note => note.id === id)
+    const noteClone = JSON.parse(JSON.stringify(note))
+    noteClone.id = utilService.makeId()
+    notes.unshift(noteClone)
+    storageService.saveToStorage(KEY, notes)
+    return Promise.resolve()
+
 }
