@@ -2,10 +2,10 @@
   position: fixed;
   bottom: 0;
   height: 466px;
-  width: 60%;
+  width: 450px;
   display: flex;
   flex-direction: column;
-  right: 60px;
+  right: 80px;
   font-size: 14px;
   background-color: white;
   box-shadow: 0px 8px 10px 1px rgb(0 0 0 / 14%),
@@ -22,16 +22,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px;
-}
-
-textarea {
-  border: none;
-  outline: none;
-  border-style: none;
-  border-color: Transparent;
-  overflow: auto;
-  resize: none;
-  font-family: roboto;
 }
 
 .mail-compose-heading .title {
@@ -59,7 +49,13 @@ textarea {
   flex-grow: 1;
 }
 
-.mail-compose-form > * {
+textarea {
+  border: none;
+  outline: none;
+  border-style: none;
+  border-color: Transparent;
+  overflow: auto;
+  resize: none;
   font-family: roboto;
 }
 

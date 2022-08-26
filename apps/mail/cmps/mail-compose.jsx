@@ -15,6 +15,7 @@ export class MailCompose extends React.Component {
         <form className="mail-compose-form">
           <div className="compose-to">
             <textarea
+              maxLength="65"
               name="to"
               placeholder="To"
               onChange={this.handleChange}
@@ -22,6 +23,7 @@ export class MailCompose extends React.Component {
           </div>
           <div className="compose-subject">
             <textarea
+              maxLength="65"
               name="subject"
               placeholder="Subject"
               onChange={this.handleChange}
