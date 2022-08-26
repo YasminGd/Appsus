@@ -3,11 +3,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 80px;
 }
 
 .add-note input {
     width: 600px;
-    min-height: 46px;
+    min-height: 44px;
     padding: 12px 16px;
     border-radius: 0.5rem;
     color: #202124;
@@ -72,8 +73,9 @@
 }
 
 .fa-container>* {
-    font-size: 20px;
-    opacity: 0.54;
+    height: 24px;
+    width: 24px;
+    /* opacity: 0.54; */
 }
 
 .fa-container:hover {

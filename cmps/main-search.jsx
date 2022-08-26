@@ -33,7 +33,7 @@ class _MainSearch extends React.Component {
   updateFilter = () => {
     if (this.state.currentPage === '/note')
       updateNoteFilter(this.state.noteFilter)
-    else updateNoteFilter(this.state.mailFilter)
+    else updateMailFilter(this.state.mailFilter)
   }
 
   render() {

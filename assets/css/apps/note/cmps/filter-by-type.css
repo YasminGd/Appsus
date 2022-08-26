@@ -1,0 +1,32 @@
+.filter-by-type {
+    /* background: green; */
+    height: 100%;
+    /* width: 16px; */
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 8px;
+}
+
+.filter-container {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 12px;
+}
+
+.filter-container i {
+    font-size: 16px;
+}
+
+.filter-container:hover {
+    background-color: #feefc3;
+
+}
