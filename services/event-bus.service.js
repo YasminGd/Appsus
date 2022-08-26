@@ -1,31 +1,35 @@
 function createEventEmitter() {
-    const listenersMap = {}
-    // Trick for DEBUG
-    window.mapmap = listenersMap
-    return {
-        on(evName, listener) {
-            listenersMap[evName] = (listenersMap[evName]) ? [...listenersMap[evName], listener] : [listener]
-            return () => {
-                listenersMap[evName] = listenersMap[evName].filter(func => func !== listener)
-            }
-        },
-        emit(evName, data) {
-            if (!listenersMap[evName]) return
-            listenersMap[evName].forEach(listener => listener(data))
-        }
-    }
+  const listenersMap = {}
+  // Trick for DEBUG
+  window.mapmap = listenersMap
+  return {
+    on(evName, listener) {
+      listenersMap[evName] = listenersMap[evName]
+        ? [...listenersMap[evName], listener]
+        : [listener]
+      return () => {
+        listenersMap[evName] = listenersMap[evName].filter(
+          (func) => func !== listener
+        )
+      }
+    },
+    emit(evName, data) {
+      if (!listenersMap[evName]) return
+      listenersMap[evName].forEach((listener) => listener(data))
+    },
+  }
 }
 
 export const eventBusService = createEventEmitter()
 
 export function updateNoteFilter(filter) {
-    eventBusService.emit('update-note-filter', filter)
+  eventBusService.emit('update-note-filter', filter)
 }
 
 export function updateMailFilter(filter) {
-    eventBusService.emit('update-mail-filter', filter)
+  console.log('sssssss')
+  eventBusService.emit('update-mail-filter', filter)
 }
-
 
 // Service Testing:
 // eventBus.on('muk', (data)=>{
@@ -42,7 +46,6 @@ export function updateMailFilter(filter) {
 // setTimeout(()=>{
 //     unsubscribe()
 // }, 2000)
-
 
 // eventBus.emit('puk', 100)
 

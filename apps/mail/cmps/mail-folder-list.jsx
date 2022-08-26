@@ -54,16 +54,6 @@ export class MailFolderList extends React.Component {
                 <span className="type">Trash</span>
               </div>
             </NavLink>
-            <NavLink to="/mail/trash">
-              <div className="mail-type">
-                <img
-                  className="mail-type-img"
-                  src="../../../assets/img/mail/drafts-icon.png"
-                  alt=""
-                />
-                <span className="type">Drafts</span>
-              </div>
-            </NavLink>
           </div>
         </section>
       </section>

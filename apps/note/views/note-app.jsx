@@ -4,6 +4,7 @@ import { NoteList } from '../cmps/note-list.jsx'
 import { noteService } from '../services/note.service.js'
 import { eventBusService } from './../../../services/event-bus.service.js'
 
+//prettier-ignore
 export class NoteApp extends React.Component {
     unsubscribe
     state = {

@@ -1,4 +1,5 @@
 import { storageService } from '../../../services/storage.service.js'
+import { utilService } from '../../../services/util.service.js'
 
 export const mailService = {
   query,
@@ -7,6 +8,7 @@ export const mailService = {
   toggleStarredMail,
   toggleReadMail,
   setReadMail,
+  sendMail,
 }
 
 const KEY = 'mailsDB'
@@ -150,6 +152,17 @@ function setReadMail(mailId) {
     updateMail(mail)
     return Promise.resolve()
   })
+}
+
+function sendMail(mail) {
+  let mails = _loadMailsFromStorage()
+  mail.id = utilService.makeId()
+  mail.isRead = false
+  mail.isStarred = false
+  mail.from = gLoggedInUser.email
+  mails = [mail, ...mails]
+  _saveMailsToStorage(mails)
+  return Promise.resolve(mail)
 }
 
 function _saveMailsToStorage(mails) {

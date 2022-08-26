@@ -68,7 +68,10 @@ export class MailApp extends React.Component {
           onSetReadMail={this.onSetReadMail}
         />
         {isMailComposeOpen && (
-          <MailCompose onOpenMailCompose={this.onOpenMailCompose} />
+          <MailCompose
+            onOpenMailCompose={this.onOpenMailCompose}
+            loadMails={this.loadMails}
+          />
         )}
       </section>
     )
