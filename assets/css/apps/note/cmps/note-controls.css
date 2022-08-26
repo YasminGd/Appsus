@@ -2,11 +2,11 @@
     position: absolute;
     padding: 0;
     bottom: 0;
-    left: 0;
+    left: 5px;
     height: 40px;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     opacity: 0;
     transition: 0.28s;

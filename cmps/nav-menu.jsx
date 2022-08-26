@@ -13,19 +13,19 @@ export class NavMenu extends React.Component {
     render() {
         return <section className="nav-menu">
             <Link exact to="/" className="nav-link-container">
-                <img src="./../../assets/img/home_icon.png" alt="" />
+                <img src="./../../assets/img/home-icon.svg" alt="" className="home-icon"/>
                 <p>Home</p>
             </Link>
             <Link to="/mail" className="nav-link-container">
-                <img src="./../../assets/img/gmail_icon.png" alt="" />
+                <div><img src="./../../assets/img/gmail_icon.svg" alt="" /></div>
                 <p>Email</p>
             </Link>
             <Link to="/note" className="nav-link-container">
-                <img src="./../../assets/img/note/logo_keep.png" alt="" />
+                <div><img src="./../../assets/img/note/logo_keep.png" alt="" /></div>
                 <p>Keep</p>
             </Link>
             <Link to="/about" className="nav-link-container">
-                <img src="./../../assets/img/about-logo.svg" alt="" />
+                <div><img src="./../../assets/img/about-logo.svg" alt="" /></div>
                 <p>About</p>
             </Link>
         </section>

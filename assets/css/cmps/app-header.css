@@ -15,20 +15,20 @@ header {
 
 .left {
   display: flex;
-  width: 90%;
+  width:50.5%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
   display: flex;
-  height: 44px;
+  height: 24px;
   justify-content: center;
   align-items: center;
   padding-left: 12px;
 }
 
 .logo img {
-  width: 40px;
-  height: 40px;
   padding-right: 4px;
 }
 
