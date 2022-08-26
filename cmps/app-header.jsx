@@ -1,17 +1,15 @@
+import { Logo } from "./Logo.jsx"
 import { MainSearch } from "./main-search.jsx"
 import { NavBar } from "./nav-bar.jsx"
 
 const { Link, NavLink, withRouter } = ReactRouterDOM
 
 export function _AppHeader({ location }) {
-    const isMainSearchShown = location.pathname === '/note' || location.pathname === '/mail'
+    const isMainSearchShown = location.pathname.includes('/note') || location.pathname.includes('/mail')
 
     return < header className="app-header" >
         <div className="left">
-            <div className="logo">
-                <img src="./../../assets/img/note/logo_keep.png" alt="" />
-                <p>Keep</p>
-            </div>
+            <Logo page={location.pathname} />
             {isMainSearchShown && <MainSearch currentPage={location.pathname} />}
         </div>
         <NavBar />

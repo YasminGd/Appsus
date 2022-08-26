@@ -2,11 +2,11 @@
     position: absolute;
     padding: 0;
     bottom: 0;
-    left: 0;
+    left: 5px;
     height: 40px;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     opacity: 0;
     transition: 0.28s;
@@ -24,6 +24,11 @@
     transition: 0.28s opacity;
 }
 
+.control-container img {
+    height: 18px;
+    width: 18px;
+}
+
 .control-container:hover {
     background-color: rgba(95, 99, 104, 0.157);
     opacity: 0.87;
@@ -31,8 +36,8 @@
 }
 
 .grey-gradient {
-    color: rgba(0,0,0,0.54);
-    background: rgba(250,250,250,.8);
+    color: rgba(0, 0, 0, 0.54);
+    background: rgba(250, 250, 250, .8);
 }
 
 /*pinned note img*/

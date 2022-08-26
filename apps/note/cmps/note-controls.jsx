@@ -20,9 +20,9 @@ export class NoteControls extends React.Component {
         const bgc = (note.type === 'note-img' || note.type === 'note-video') && !note.info.title ? 'grey-gradient' : ''
 
         return <section className={`note-controls ${bgc} rounded-bottom`} onMouseLeave={this.closeColorOptions}>
-            <div className="control-container" onClick={this.toggleColorOptions}><i class="fa-solid fa-palette"></i></div>
-            <div className="control-container" onClick={(ev) => onRemoveNote(ev, note.id, note.isPinned)}><i class="fa-solid fa-trash"></i></div>
-            <div className="control-container" onClick={(ev) => onCloneNote(ev, note.id)}><i class="fa-regular fa-clone"></i></div>
+            <div className="control-container" onClick={this.toggleColorOptions}><img src="./assets/img/note/colors.svg"/></div>
+            <div className="control-container" onClick={(ev) => onRemoveNote(ev, note.id, note.isPinned)}><img src="./assets/img/note/trash-can.svg"/></div>
+            <div className="control-container" onClick={(ev) => onCloneNote(ev, note.id)}><img src="./assets/img/note/copy-note.svg"/></div>
             {this.state.isColorOptionsOpen && <ColorOptions onSetColor={onSetColor} noteId={note.id} />}
         </section>
     }

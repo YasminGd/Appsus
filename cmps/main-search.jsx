@@ -13,7 +13,9 @@ class _MainSearch extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.state.currentPage !== this.props.currentPage)
+    console.log(this.props);
+    console.log(this.state.currentPage, this.props.currentPage);
+    if (!this.props.currentPage.includes(this.state.currentPage))
       this.setState({
         currentPage: this.props.currentPage,
         noteFilter: '',
@@ -28,13 +30,13 @@ class _MainSearch extends React.Component {
   }
 
   updateFilter = () => {
-    if (this.state.currentPage === '/note') updateNoteFilter(this.state.noteFilter)
+    if (this.state.currentPage.includes('/note')) updateNoteFilter(this.state.noteFilter)
     else updateMailFilter(this.state.mailFilter)
   }
 
   render() {
     const filter =
-      this.state.currentPage === '/note' ? 'noteFilter' : 'mailFilter'
+      this.state.currentPage.includes('/note') ? 'noteFilter' : 'mailFilter'
 
     return (
       <section className="main-search-container">

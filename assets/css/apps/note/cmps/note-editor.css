@@ -80,3 +80,7 @@
 .note-editor .note-pin {
     opacity: 0.56;
 }
+
+.note-editor .note-pin:hover {
+    cursor: pointer;
+}
