@@ -9,6 +9,7 @@ export const mailService = {
   toggleReadMail,
   setReadMail,
   sendMail,
+  getUnreadMailsCount,
 }
 
 const KEY = 'mailsDB'
@@ -25,7 +26,7 @@ const gMails = [
     isRead: false,
     isStarred: true,
     sentAt: 1551133930594,
-    to: 'momo@momo.com',
+    to: 'user@appsus.com',
     from: 'yasmin@gudha.com',
   },
   {
@@ -35,18 +36,18 @@ const gMails = [
     isRead: true,
     isStarred: false,
     sentAt: 1551133930594,
-    to: 'momo@momo.com',
+    to: 'user@appsus.com',
     from: 'bar@ohayon.com',
   },
   {
     id: 'e103',
-    subject: 'How Are you?',
-    body: 'Hope you doing well',
+    subject: 'Welcome to Slack',
+    body: 'Coding Academy - Jul 22 on Slack: New Account Details',
     isRead: false,
     isStarred: true,
     sentAt: 1551133930594,
-    to: 'momo@momo.com',
-    from: 'bar@ohayon.com',
+    to: 'user@appsus.com',
+    from: 'feedback@slack.com',
   },
   {
     id: 'e104',
@@ -56,7 +57,7 @@ const gMails = [
     isStarred: false,
     sentAt: 1551133930594,
     to: 'momo@momo.com',
-    from: 'bar@ohayon.com',
+    from: 'noreply@tmisrael.co.il',
   },
   {
     id: 'e105',
@@ -66,7 +67,17 @@ const gMails = [
     isStarred: true,
     sentAt: 1551133930594,
     to: 'momo@momo.com',
-    from: 'bar@ohayon.com',
+    from: 'no_reply@email.apple.com',
+  },
+  {
+    id: 'e106',
+    subject: '100% of budget reached',
+    body: 'Your billing account "My Billing Account" has reached 100% of the budget',
+    isRead: false,
+    isStarred: true,
+    sentAt: 1551133930594,
+    to: 'user@appsus.com',
+    from: 'CloudPlatform@google.com',
   },
 ]
 
@@ -77,15 +88,15 @@ function query(filterBy) {
     _saveMailsToStorage(mails)
   }
 
-  // if (filterBy) {
-  //   let { keyword } = filterBy
-  //   mails = mails.filter((mail) => {
-  //     return (
-  //       mail.subject.toLowerCase().includes(keyword.toLowerCase()) ||
-  //       mail.body.toLowerCase().includes(keyword.toLowerCase())
-  //     )
-  //   })
-  // }
+  if (filterBy) {
+    mails = mails.filter((mail) => {
+      return (
+        mail.subject.toLowerCase().includes(filterBy.toLowerCase()) ||
+        mail.body.toLowerCase().includes(filterBy.toLowerCase()) ||
+        mail.from.toLowerCase().includes(filterBy.toLowerCase())
+      )
+    })
+  }
 
   return Promise.resolve(mails)
 }
@@ -163,6 +174,16 @@ function sendMail(mail) {
   mails = [mail, ...mails]
   _saveMailsToStorage(mails)
   return Promise.resolve(mail)
+}
+
+function getUnreadMailsCount() {
+  const mails = _loadMailsFromStorage() || gMails
+  let unreadMailsCount = 0
+  mails.forEach((mail) => {
+    if (!mail.isRead && mail.to === gLoggedInUser.email) unreadMailsCount++
+  })
+
+  return unreadMailsCount
 }
 
 function _saveMailsToStorage(mails) {
