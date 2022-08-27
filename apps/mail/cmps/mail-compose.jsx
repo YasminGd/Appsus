@@ -11,6 +11,13 @@ export class MailCompose extends React.Component {
     },
   }
 
+  componentDidMount() {
+    if (this.props.mailFromNote) {
+      const { subject, body } = this.props.mailFromNote
+      this.setState({ mail: { subject, body } })
+    }
+  }
+
   handleChange = ({ target }) => {
     const field = target.name
     const value = target.value
@@ -30,6 +37,7 @@ export class MailCompose extends React.Component {
   }
 
   render() {
+    const { subject, body } = this.state.mail
     return (
       <section className="mail-compose">
         <div className="mail-compose-heading">
@@ -52,11 +60,16 @@ export class MailCompose extends React.Component {
               maxLength="65"
               name="subject"
               placeholder="Subject"
+              value={subject}
               onChange={this.handleChange}
             ></textarea>
           </div>
           <div className="compose-body">
-            <textarea name="body" onChange={this.handleChange}></textarea>
+            <textarea
+              name="body"
+              onChange={this.handleChange}
+              value={body}
+            ></textarea>
           </div>
           <div className="compose-actions">
             <button

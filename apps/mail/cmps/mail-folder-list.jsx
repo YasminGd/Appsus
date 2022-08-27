@@ -1,4 +1,3 @@
-import { mailService } from './'
 const { NavLink } = ReactRouterDOM
 
 export class MailFolderList extends React.Component {

@@ -18,6 +18,8 @@ export class MailApp extends React.Component {
       this.setState({ filterBy }, () => this.loadMails())
     )
 
+    this.onCheckNoteRecieved()
+
     if (this.props.match.params.mailType)
       this.updateTypeFilter(this.props.match.params.mailType)
     else this.loadMails()
@@ -51,7 +53,7 @@ export class MailApp extends React.Component {
       this.setState({ mails })
     })
   }
-
+  //
   onToggleStarredMail = (ev, mailId) => {
     ev.preventDefault()
     ev.stopPropagation()
@@ -81,8 +83,19 @@ export class MailApp extends React.Component {
     this.setState({ filterType: mailType }, this.loadMails)
   }
 
+  onCheckNoteRecieved = () => {
+    const urlParams = new URLSearchParams(this.props.location.search)
+    const title = urlParams.get('title')
+    const subject = urlParams.get('subject')
+
+    if (title && subject) {
+      this.setState({ mail: { subject: title, body: subject } })
+      this.onOpenMailCompose(true)
+    }
+  }
+
   render() {
-    const { mails, isMailComposeOpen } = this.state
+    const { mails, isMailComposeOpen, mail } = this.state
     return (
       <section className="mail-app">
         <MailFolderList
@@ -98,6 +111,7 @@ export class MailApp extends React.Component {
         />
         {isMailComposeOpen && (
           <MailCompose
+            mailFromNote={mail}
             onOpenMailCompose={this.onOpenMailCompose}
             loadMails={this.loadMails}
           />
