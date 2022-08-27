@@ -2,16 +2,16 @@ export function Logo({ page }) {
   let logoSrc = ''
   let name = ''
   if (page.includes('/note')) {
-    logoSrc = 'note/logo_keep.png'
+    logoSrc = 'note/logo-keep.png'
     name = 'Keep'
   } else if (page.includes('/mail')) {
-    logoSrc = 'gmail_icon.svg'
+    logoSrc = 'gmail-icon.png'
     name = 'Email'
   } else if (page === '/about') {
     logoSrc = 'about-logo.svg'
     name = 'About'
   } else {
-    logoSrc = 'home-icon.svg'
+    logoSrc = 'home-icon.png'
     name = 'Appsus'
   }
 
