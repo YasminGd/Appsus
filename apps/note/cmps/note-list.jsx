@@ -1,4 +1,3 @@
-import { NoteControls } from "./note-controls.jsx";
 import { NotePreview } from "./note-preview.jsx";
 
 export function NoteList({ notes, onToggleTodo, onRemoveNote, onSetColor, onToggleEditing, onCloneNote, onTogglePinnedNote }) {

@@ -6,6 +6,7 @@
   border-radius: 8px;
   transition: 0.28s;
   padding: 11px 0 11px 50px;
+  font-size: 16px;
 }
 
 .main-search:focus {

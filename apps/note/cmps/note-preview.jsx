@@ -25,9 +25,12 @@ class _NotePreview extends React.Component {
 
     onSendAsMail = (ev, note) => {
         ev.stopPropagation()
-        const msgBody = noteService.getInputNameAndVal(note.type)
+        let subject = note.info[noteService.getInputNameAndVal(note.type)]
+        if (note.type === 'note-todos') {
+            subject = subject.map(todo => todo.txt).join(', ')
+        }
         const { title } = note.info
-        const params = utilService.getUrlByParams({ title, subject: note.info[msgBody] })
+        const params = utilService.getUrlByParams({ title, subject })
         const path = `/mail/new-mail${params}`
         this.props.history.push(path)
     }
