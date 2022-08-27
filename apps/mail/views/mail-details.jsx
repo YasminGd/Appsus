@@ -46,7 +46,9 @@ export class MailDetails extends React.Component {
       title: subject,
       subject: body,
     })
-    const path = `note/new-note${params}`
+    console.log(`this.props.history:`, this.props.history)
+    console.log(`params:`, params)
+    const path = `/note/new-note${params}`
     this.props.history.push(path)
   }
 
@@ -82,7 +84,7 @@ export class MailDetails extends React.Component {
               className="trash-icon-mail-details"
               onClick={this.onRemoveMail}
             >
-              <img src="../../../assets/img/mail/trash-icon.png" />
+              <img src="./assets/img/mail/trash-icon.png" />
             </span>
             <span
               className="send-mail-details"
