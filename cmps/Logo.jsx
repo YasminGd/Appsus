@@ -11,7 +11,7 @@ export function Logo({ page }) {
     logoSrc = 'about-logo.svg'
     name = 'About'
   } else {
-    logoSrc = 'home-icon.png'
+    logoSrc = 'logo-bigger.png'
     name = 'Appsus'
   }
 

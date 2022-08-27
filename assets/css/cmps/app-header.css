@@ -29,7 +29,8 @@ header {
 }
 
 .logo img {
-  padding-right: 4px;
+  padding-right: 8px;
+  height: 40px;
 }
 
 .logo p {
