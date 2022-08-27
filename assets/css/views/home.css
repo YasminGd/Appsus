@@ -1,20 +1,21 @@
 .home {
-  background-image: url('./../../../assets/img/home-bg.jpg');
-  height: calc(100vh - 64px);
-  background-size: cover;
-  background-position: 70% 50%;
+    background-image: url('./../../../assets/img/home-bg.jpg');
+    height: calc(100vh - 64px);
+    width: 100vw;
+    background-size: cover;
+    background-position: 70% 50%;
 }
 
 .home .slogan {
-  font-size: 70px;
-  color: #f2f1ef;
-  font-family: roboto-bold;
-  position: absolute;
-  right: 10%;
-  top: 200px;
-  user-select: none;
+    font-size: 70px;
+    color: #f2f1ef;
+    font-family: roboto-bold;
+    position: absolute;
+    right: 10%;
+    top: 200px;
+    user-select: none;
 }
 
-.home .slogan > * {
-  text-shadow: 2px 2px 2px #433e3e;
+.home .slogan>* {
+    text-shadow: 2px 2px 2px #433e3e;
 }
