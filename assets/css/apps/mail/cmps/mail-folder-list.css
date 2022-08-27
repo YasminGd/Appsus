@@ -1,11 +1,10 @@
 .mail-folder-list {
-  width: 240px;
-  /* height: 100%; */
+  width: 70px;
 }
 
 .fixed-mail-folder-list {
   position: fixed;
-  width: 240px;
+  width: 70px;
   height: 100%;
   background-color: #f6f8fc;
 }
@@ -19,8 +18,8 @@
   left: 8px;
   font-size: 14px;
   letter-spacing: 0.25px;
-  width: 145px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   border-radius: 14px;
   line-height: 32px;
   padding: 14px;
@@ -31,10 +30,7 @@
 }
 
 .mail-folder-list .compose-mail span {
-  font-size: 14px;
-  font-weight: 600;
-  padding-left: 14px;
-  padding-right: 14px;
+  display: none;
 }
 
 .mail-folder-list .compose-mail:hover {
@@ -43,8 +39,8 @@
 }
 
 .mail-folder-list .compose-mail .compose-img {
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
 }
 
 .mail-folder-list .mail-types-container {
@@ -55,7 +51,7 @@
 }
 
 .mail-folder-list .mail-types-container > * {
-  width: 240px;
+  width: 70px;
   height: 32px;
 }
 
@@ -79,6 +75,10 @@
 }
 
 .mail-folder-list a.my-active .mail-type {
+  font-family: roboto-bold;
+}
+
+.mail-folder-list a.active .mail-type {
   font-family: roboto-bold;
 }
 
@@ -112,8 +112,7 @@
 }
 
 .mail-folder-list .type {
-  width: 80%;
-  font-size: 14px;
+  display: none;
 }
 
 .mail-folder-list .amount {
@@ -125,4 +124,44 @@
 .mail-folder-list .mail-type-img {
   width: 20px;
   height: 20px;
+}
+
+/* Media Queries */
+
+@media (min-width: 750px) {
+  .mail-folder-list {
+    width: 240px;
+  }
+
+  .fixed-mail-folder-list {
+    width: 240px;
+  }
+
+  .mail-folder-list .mail-types-container > * {
+    width: 240px;
+  }
+
+  .mail-folder-list .compose-mail {
+    width: 145px;
+    height: 48px;
+  }
+
+  .mail-folder-list .compose-mail span {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .mail-folder-list .compose-mail .compose-img {
+    height: 30px;
+    width: 30px;
+  }
+
+  .mail-folder-list .type {
+    display: block;
+    width: 80%;
+    font-size: 14px;
+  }
 }

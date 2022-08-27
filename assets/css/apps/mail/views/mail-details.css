@@ -8,7 +8,7 @@
   align-items: center;
   flex-wrap: wrap;
   flex-grow: 1;
-  padding: 0 50px;
+  padding: 0 10px;
   width: 100%;
 }
 
@@ -72,4 +72,10 @@
 
 .mail-details .body {
   padding: 20px 0;
+}
+
+@media (min-width: 750px) {
+  .mail-details-content {
+    padding: 0 50px;
+  }
 }
