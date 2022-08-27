@@ -1,5 +1,6 @@
 import { storageService } from '../../../services/storage.service.js'
 import { utilService } from '../../../services/util.service.js'
+import { demoNotes } from './demo-date.service.js'
 
 export const noteService = {
     getNotes,
@@ -151,7 +152,7 @@ const KEY = 'notesDB'
 function getNotes(filter, typeFilter, isPinned) {
     let notes = storageService.loadFromStorage(KEY)
     if (!notes) {
-        notes = gNotes
+        notes = demoNotes
         storageService.saveToStorage(KEY, notes)
     }
     if (typeFilter) notes = notes.filter(note => note.type === typeFilter)

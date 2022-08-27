@@ -37,6 +37,7 @@ class _NotePreview extends React.Component {
 
     render() {
         const { note, onToggleTodo, onRemoveNote, onSetColor, onToggleEditing, onCloneNote, onTogglePinnedNote } = this.props
+        console.log(note);
         const DynamicCmp = this.getNoteType(note.type)
         const bgcolorTag = note.style.backgroundColor ? note.style.backgroundColor : 'white'
         const borderTag = bgcolorTag !== 'white' && (note.type !== 'note-img' || note.type !== 'note-video') ? 'border-invisible' : 'border-visible'
