@@ -13,7 +13,8 @@ export const noteService = {
     getInputPlaceHolder,
     cloneNote,
     togglePinnedNote,
-    getNoteType
+    getNoteType,
+    checkIfNoteChanged
 }
 
 const gNotes = [
@@ -152,7 +153,7 @@ function getNotes(filter, typeFilter, isPinned) {
         notes = gNotes
         storageService.saveToStorage(KEY, notes)
     }
-    if(typeFilter) notes = notes.filter(note => note.type === typeFilter)
+    if (typeFilter) notes = notes.filter(note => note.type === typeFilter)
     notes = notes.filter(note => {
         if (note.isPinned === isPinned) {
             if (!filter) return true
@@ -264,16 +265,28 @@ function togglePinnedNote(id) {
 }
 
 function getNoteType(filter) {
-    switch(filter) {
+    switch (filter) {
         case '':
             return ''
         case 'text':
-            return'note-txt'
+            return 'note-txt'
         case 'image':
             return 'note-img'
         case 'video':
             return 'note-video'
         case 'list':
             return 'note-todos'
+    }
+}
+
+function checkIfNoteChanged(note) {
+    switch (note.type) {
+        case 'note-txt':
+            return (note.info.title || note.info.subject)
+        case 'note-img':
+        case 'note-video':
+            return note.info.url
+        case 'note-todos':
+            return note.info.todos.length == true
     }
 }

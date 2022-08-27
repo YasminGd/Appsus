@@ -7,6 +7,7 @@ export const utilService = {
   getDayName,
   getMonthName,
   getFormattedTime,
+  getUrlByParams
 }
 
 function makeId(length = 6) {
@@ -111,4 +112,11 @@ function getFormattedTime(time) {
   const month = getMonthName(newDate)
   const date = newDate.getDate()
   return `${month} ${date}`
+}
+
+function getUrlByParams({ title, subject }) {
+
+  const queryStringParams = `?title=${title}&subject=${subject}`
+  return queryStringParams
+
 }

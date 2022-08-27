@@ -41,3 +41,6 @@
 @import './apps/note/cmps/color-options.css';
 @import './apps/note/cmps/note-editor.css';
 @import './apps/note/cmps/filter-by-type.css';
+
+/* Notes Cmp */
+@import './apps/note/mq/mq.css';
