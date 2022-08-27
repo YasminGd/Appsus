@@ -15,8 +15,8 @@ export function About() {
             <h5 className="age">28 Years Old</h5>
             <div className="divider"></div>
             <h4 className="txt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Distinctio, harum vitae quas impedit quos dignissimos.
+              I work very well under pressure, love to face challenges and reach
+              new heights.
             </h4>
           </div>
         </div>

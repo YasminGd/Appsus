@@ -1,6 +1,6 @@
 .about {
   background-color: rgba(243, 236, 236, 0.306);
-  height: calc(100vh - 64px);
+  min-height: calc(100vh - 64px);
 }
 
 .about .about-title {
@@ -45,7 +45,11 @@
 }
 
 .about-team .text-container .divider {
-  border-bottom: 1px solid #3b4355;
+  border-bottom: 1px solid #5f6368;
   margin-bottom: 1.5rem;
   width: 26px;
+}
+
+.about-team .text-container .txt {
+  padding-bottom: 15px;
 }

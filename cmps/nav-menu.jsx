@@ -12,7 +12,7 @@ export class NavMenu extends React.Component {
   render() {
     return (
       <section className="nav-menu">
-        <Link exact to="/" className="nav-link-container">
+        <Link to="/" className="nav-link-container">
           <img src="./assets/img/home-icon.png" alt="" className="home-icon" />
           <p>Home</p>
         </Link>
