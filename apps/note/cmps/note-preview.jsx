@@ -28,7 +28,7 @@ class _NotePreview extends React.Component {
         const msgBody = noteService.getInputNameAndVal(note.type)
         const { title } = note.info
         const params = utilService.getUrlByParams({ title, subject: note.info[msgBody] })
-        const path = `mail/new-mail/${params}`
+        const path = `mail/new-mail${params}`
         this.props.history.push(path)
     }
 
