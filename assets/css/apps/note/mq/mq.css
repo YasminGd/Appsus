@@ -12,10 +12,10 @@
 }
 
 @media (max-width: 730px) {
-    .add-note-input {
-        min-width: 360px;
-        width: 400px;
-    }   
+    .add-note input {
+        width: 80%;
+        min-width: 320px;
+    }
 }
 
 @media (min-width: 590px) {
@@ -74,7 +74,7 @@
 
 @media (min-width: 1800px) {
     .note-list {
-        margin-left: 110px;
+        margin-left: 140px;
         margin-right: 25px;
         column-count: 7;
         width: 90%;
