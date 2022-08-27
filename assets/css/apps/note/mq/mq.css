@@ -153,8 +153,11 @@
 }
 
 @media (min-width: 1800px) {
+    .pinned-note-list{
+        margin-bottom: 50px;
+    }
     .note-list {
-        margin-left: 140px;
+        margin-left: 110px;
         margin-right: 25px;
         column-count: 7;
         width: 90%;

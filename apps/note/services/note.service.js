@@ -292,7 +292,7 @@ function checkIfNoteChanged(note) {
         case 'note-video':
             return note.info.url
         case 'note-todos':
-            return note.info.todos.length == true
+            return note.info.todos
     }
 }
 

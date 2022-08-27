@@ -1,13 +1,6 @@
 const { Link } = ReactRouterDOM
 
 export class NavMenu extends React.Component {
-  // componentDidMount() {
-  //     document.body.addEventListener('click', () => console.log('helow'))
-  // }
-
-  // componentWillUnmount() {
-  //     document.body.removeEventListener('click', this.props.closeNav)
-  // }
 
   render() {
     return (
