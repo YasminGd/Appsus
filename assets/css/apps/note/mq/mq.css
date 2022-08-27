@@ -1,0 +1,82 @@
+@media (max-width: 590px) {
+    .note-list {
+        margin-right: auto;
+        columns: auto 1;
+        margin-left: 15%;
+        padding-right: 15px;
+    }
+
+    .note-preview {
+        width: 100%;
+    }
+}
+
+@media (max-width: 730px) {
+    .add-note-input {
+        min-width: 360px;
+        width: 400px;
+    }   
+}
+
+@media (min-width: 590px) {
+    .note-list {
+        margin: auto;
+        margin-left: 15%;
+        columns: auto 2;
+        width: 50%;
+    }
+}
+
+@media (min-width: 870px) {
+    .note-list {
+        /* margin-left: 10%; */
+        /* margin-right: auto; */
+        margin: auto;
+        columns: auto 3;
+        width: 60%;
+    }
+}
+
+@media (min-width: 1110px) {
+    .note-list {
+        margin: auto;
+        /* margin-left: 10%; */
+        /* margin-right: auto; */
+        columns: auto 4;
+        width: 70%;
+    }
+}
+
+@media (min-width: 1350px) {
+    .note-list {
+        /* margin-left: 7%; */
+        /* margin-right: auto; */
+        margin: auto;
+        columns: auto 5;
+        width: 80%;
+    }
+}
+
+@media (min-width: 1560px) {
+    .note-list {
+        margin-left: 7%;
+        width: 70%;
+    }
+}
+
+@media (min-width: 1650px) {
+    .note-list {
+        margin-right: 0px;
+        columns: auto 6;
+        width: 90%;
+    }
+}
+
+@media (min-width: 1800px) {
+    .note-list {
+        margin-left: 110px;
+        margin-right: 25px;
+        column-count: 7;
+        width: 90%;
+    }
+}

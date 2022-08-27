@@ -15,7 +15,6 @@ export class AddNote extends React.Component {
 
     handleChange = ({ target }) => {
         const field = target.name
-        console.log(field);
         const value = target.value
 
         this.setState((prevState) => ({
@@ -28,8 +27,10 @@ export class AddNote extends React.Component {
 
     onAddNewNote = (ev) => {
         ev.preventDefault()
-        this.props.onAddNewNote(this.state)
-        this.resetNote()
+        if (noteService.checkIfNoteChanged(this.state)) {
+            this.props.onAddNewNote(this.state)
+            this.resetNote()
+        }
     }
 
     resetNote = (type = 'note-txt') => {
@@ -55,7 +56,7 @@ export class AddNote extends React.Component {
                 <TypeOfNotesIcons onChangeTypeOfNote={this.resetNote} />
                 <form onSubmit={this.onAddNewNote} className="inputs">
                     <input type="text" placeholder="Title" name="title" value={title} onChange={this.handleChange} />
-                    <input type="text" placeholder={placeholder} name={name} value={this.state.info[name]} onChange={this.handleChange} />
+                    <input type="text" placeholder={placeholder} name={name} value={this.state.info[name]} onChange={this.handleChange} autocomplete="off" />
                     <button className="add-note-button">Create</button>
                 </form>
             </section>

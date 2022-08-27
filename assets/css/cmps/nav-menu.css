@@ -1,7 +1,7 @@
 .nav-menu {
     width: 328px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
     row-gap: 20px;
     background-color: white;
     border-radius: 8px;
@@ -19,7 +19,7 @@
 
 .nav-menu .nav-link-container {
     font-size: 14px;
-    min-height: 80px;
+    width: 33%;
     /* width: 70px; */
     display: flex;
     flex-direction: column;

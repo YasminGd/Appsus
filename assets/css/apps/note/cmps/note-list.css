@@ -9,14 +9,14 @@
     justify-content: center; */
     columns: 250px auto;
     /* height: 100vh; */
-    gap: 1px;
+    gap: 10px;
     /* max-width: 1440px; */
     /* margin: auto; */
     padding: 0 ;
     /* display: inline-block; */
     margin: auto;
-    margin-left:110px
-    /* max-width: max-content */
+    margin-left:135px;
+    min-width: min-content
 }
 
 .pinned-note-list {
