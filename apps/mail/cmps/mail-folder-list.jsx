@@ -1,3 +1,4 @@
+import { mailService } from './'
 const { NavLink } = ReactRouterDOM
 
 export class MailFolderList extends React.Component {
@@ -10,7 +11,7 @@ export class MailFolderList extends React.Component {
         <section className="fixed-mail-folder-list">
           <div className="compose-mail" onClick={() => onOpenMailCompose(true)}>
             <img
-              src="../../../assets/img/mail/compose-icon.png"
+              src="./assets/img/mail/compose-icon.png"
               className="compose-img"
             />
             <span>Compose</span>
@@ -20,7 +21,7 @@ export class MailFolderList extends React.Component {
               <div className="mail-type inbox">
                 <img
                   className="mail-type-img"
-                  src="../../../assets/img/mail/inbox-close-icon.png"
+                  src="./assets/img/mail/inbox-close-icon.png"
                   alt=""
                 />
                 <span className="type">Inbox</span>
@@ -31,7 +32,7 @@ export class MailFolderList extends React.Component {
               <div className={'mail-type'}>
                 <img
                   className="mail-type-img"
-                  src="../../../assets/img/mail/empty-star-icon.png"
+                  src="./assets/img/mail/empty-star-icon.png"
                   alt=""
                 />
                 <span className="type">Starred</span>
@@ -41,7 +42,7 @@ export class MailFolderList extends React.Component {
               <div className="mail-type">
                 <img
                   className="mail-type-img"
-                  src="../../../assets/img/mail/sent-icon.png"
+                  src="./assets/img/mail/sent-icon.png"
                   alt=""
                 />
                 <span className="type">Sent</span>
@@ -51,7 +52,7 @@ export class MailFolderList extends React.Component {
               <div className="mail-type">
                 <img
                   className="mail-type-img"
-                  src="../../../assets/img/mail/trash-icon.png"
+                  src="./assets/img/mail/trash-icon.png"
                   alt=""
                 />
                 <span className="type">Trash</span>

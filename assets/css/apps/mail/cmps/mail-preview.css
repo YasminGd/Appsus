@@ -38,6 +38,9 @@
 }
 
 .mail-preview .mail-address {
+  width: 200px;
+  text-overflow: ellipsis;
+  overflow: hidden;
   margin-left: 4px;
 }
 
