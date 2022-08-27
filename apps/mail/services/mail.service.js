@@ -71,13 +71,13 @@ const gMails = [
   },
   {
     id: 'e106',
-    subject: '100% of budget reached',
-    body: 'Your billing account "My Billing Account" has reached 100% of the budget',
+    subject: 'Coding Academy Sprint 3 DONE!',
+    body: 'The sprint is over',
     isRead: false,
     isStarred: true,
     sentAt: new Date(2022, 5, 21).getTime(),
     to: 'user@appsus.com',
-    from: 'CloudPlatform@google.com',
+    from: 'Coding@academy.co.il',
   },
   {
     id: 'e107',
@@ -138,6 +138,16 @@ const gMails = [
     sentAt: 1551133930594,
     to: 'noreply@fangage.com',
     from: 'user@appsus.com',
+  },
+  {
+    id: 'e113',
+    subject: 'Say YES to a discount',
+    body: 'Your friends, family and dreams are awaiting!',
+    isRead: true,
+    isStarred: true,
+    sentAt: 1551133930594,
+    to: 'user@appsus.com',
+    from: 'wizzair@gmail.com',
   },
 ]
 
