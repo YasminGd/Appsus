@@ -40,13 +40,25 @@
   height: 40px;
 }
 
+.mail-details-icons .send-mail-details {
+  font-size: 20px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
 .mail-details-icons .trash-icon-mail-details img {
   width: 25px;
   height: 25px;
 }
 
 .mail-details-icons .back-icon-mail-details:hover,
-.mail-details-icons .trash-icon-mail-details:hover {
+.mail-details-icons .trash-icon-mail-details:hover,
+.mail-details-icons .send-mail-details:hover {
   background-color: rgba(128, 128, 128, 0.103);
   border-radius: 50%;
 }

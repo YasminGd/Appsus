@@ -61,6 +61,9 @@ export class MailDetails extends React.Component {
             >
               <img src="../../../assets/img/mail/trash-icon.png" />
             </span>
+            <span className="send-mail-details">
+              <i className="fa-solid fa-paper-plane"></i>
+            </span>
           </div>
           <div className="mail-details-text">
             <div className="subject">{subject}</div>
