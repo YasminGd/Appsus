@@ -1,4 +1,4 @@
-import { Logo } from './logo.jsx'
+import { Logo } from './Logo.jsx'
 import { MainSearch } from './main-search.jsx'
 import { NavBar } from './nav-bar.jsx'
 
