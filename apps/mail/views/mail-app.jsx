@@ -53,7 +53,7 @@ export class MailApp extends React.Component {
       this.setState({ mails })
     })
   }
-  //
+
   onToggleStarredMail = (ev, mailId) => {
     ev.preventDefault()
     ev.stopPropagation()

@@ -1,13 +1,14 @@
 import { mailService } from '../services/mail.service.js'
+const { withRouter } = ReactRouterDOM
 
-export class MailCompose extends React.Component {
+class _MailCompose extends React.Component {
   state = {
     mail: {
       id: null,
-      subject: null,
-      body: null,
+      subject: '',
+      body: '',
       sentAt: null,
-      to: null,
+      to: '',
     },
   }
 
@@ -15,6 +16,16 @@ export class MailCompose extends React.Component {
     if (this.props.mailFromNote) {
       const { subject, body } = this.props.mailFromNote
       this.setState({ mail: { subject, body } })
+    }
+  }
+
+  componentWillUnmount() {
+    const urlParams = new URLSearchParams(this.props.location.search)
+    const title = urlParams.get('title')
+    const subject = urlParams.get('subject')
+
+    if (title || subject) {
+      this.props.history.push('/mail/inbox')
     }
   }
 
@@ -94,3 +105,5 @@ export class MailCompose extends React.Component {
     )
   }
 }
+
+export const MailCompose = withRouter(_MailCompose)
