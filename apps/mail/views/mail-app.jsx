@@ -88,7 +88,7 @@ export class MailApp extends React.Component {
     const title = urlParams.get('title')
     const subject = urlParams.get('subject')
 
-    if (title && subject) {
+    if (title || subject) {
       this.setState({ mail: { subject: title, body: subject } })
       this.onOpenMailCompose(true)
     }
