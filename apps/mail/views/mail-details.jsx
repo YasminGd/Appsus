@@ -40,29 +40,14 @@ export class MailDetails extends React.Component {
   }
 
   onSendAsNote = (mail) => {
-    console.log(`this.props:`, this.props)
     const { subject, body } = mail
     const params = utilService.getUrlByParams({
       title: subject,
       subject: body,
     })
-    console.log(`this.props.history:`, this.props.history)
-    console.log(`params:`, params)
     const path = `/note/new-note${params}`
     this.props.history.push(path)
   }
-
-  // onSendAsMail = (ev, note) => {
-  //   ev.stopPropagation()
-  //   const msgBody = noteService.getInputNameAndVal(note.type)
-  //   const { title } = note.info
-  //   const params = utilService.getUrlByParams({
-  //     title,
-  //     subject: note.info[msgBody],
-  //   })
-  //   const path = `mail/new-mail/${params}`
-  //   this.props.history.push(path)
-  // }
 
   render() {
     const { mail, isMailComposeOpen } = this.state
