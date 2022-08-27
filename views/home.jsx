@@ -2,6 +2,9 @@
 export function Home() {
 
     return <section className="home">
-        <p className="slogan">Comfort, above all else</p>
+        <div className="slogan">
+            <p className="">Comfort,</p>
+            <p className="">above all else.</p>
+        </div>
     </section>
 }

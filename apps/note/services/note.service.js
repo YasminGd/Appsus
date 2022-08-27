@@ -14,7 +14,8 @@ export const noteService = {
     cloneNote,
     togglePinnedNote,
     getNoteType,
-    checkIfNoteChanged
+    checkIfNoteChanged,
+    getEmptyNoteTemplate
 }
 
 const gNotes = [
@@ -153,7 +154,7 @@ function getNotes(filter, typeFilter, isPinned) {
         notes = gNotes
         storageService.saveToStorage(KEY, notes)
     }
-    if(typeFilter) notes = notes.filter(note => note.type === typeFilter)
+    if (typeFilter) notes = notes.filter(note => note.type === typeFilter)
     notes = notes.filter(note => {
         if (note.isPinned === isPinned) {
             if (!filter) return true
@@ -215,7 +216,11 @@ function setColor(color, id) {
 
 function editNote(newNote) {
     let notes = storageService.loadFromStorage(KEY)
-    notes = notes.map(note => note.id === newNote.id ? newNote : note)
+    if (!newNote.id) {
+        newNote.id = utilService.makeId()
+        notes.unshift(newNote)
+    }
+    else notes = notes.map(note => note.id === newNote.id ? newNote : note)
     storageService.saveToStorage(KEY, notes)
     return Promise.resolve()
 }
@@ -265,11 +270,11 @@ function togglePinnedNote(id) {
 }
 
 function getNoteType(filter) {
-    switch(filter) {
+    switch (filter) {
         case '':
             return ''
         case 'text':
-            return'note-txt'
+            return 'note-txt'
         case 'image':
             return 'note-img'
         case 'video':
@@ -280,7 +285,7 @@ function getNoteType(filter) {
 }
 
 function checkIfNoteChanged(note) {
-    switch(note.type) {
+    switch (note.type) {
         case 'note-txt':
             return (note.info.title || note.info.subject)
         case 'note-img':
@@ -288,5 +293,20 @@ function checkIfNoteChanged(note) {
             return note.info.url
         case 'note-todos':
             return note.info.todos.length == true
+    }
+}
+
+function getEmptyNoteTemplate() {
+    return {
+        type: 'note-txt',
+        info: {
+            title: '',
+            subject: '',
+            url: '',
+            todos: []
+        },
+        style: { backgroundColor: 'white' },
+        id: '',
+        isPinned: false
     }
 }

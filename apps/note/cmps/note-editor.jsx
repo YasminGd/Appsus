@@ -1,7 +1,8 @@
 import { noteService } from "../services/note.service.js"
 import { NotePin } from "./note-pin.jsx"
+const { withRouter } = ReactRouterDOM
 
-export class NoteEditor extends React.Component {
+class _NoteEditor extends React.Component {
     state = {
         type: 'note-txt',
         info: {
@@ -17,7 +18,15 @@ export class NoteEditor extends React.Component {
 
     componentDidMount() {
         const { note } = this.props
-        this.setState({ type: note.type, info: note.info , id: note.id, style: note.style, isPinned: note.isPinned })
+        this.setState({ type: note.type, info: note.info, id: note.id, style: note.style, isPinned: note.isPinned })
+    }
+
+    componentWillUnmount() {
+        const urlParams = new URLSearchParams(this.props.location.search)
+        const title = urlParams.get('title')
+        const subject = urlParams.get('subject')
+
+        if (title || subject) this.props.history.push('/note')
     }
 
     handleChange = ({ target }) => {
@@ -60,3 +69,5 @@ export class NoteEditor extends React.Component {
         </React.Fragment>
     }
 }
+
+export const NoteEditor = withRouter(_NoteEditor)

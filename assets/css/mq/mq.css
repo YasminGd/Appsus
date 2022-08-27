@@ -11,11 +11,29 @@
 }
 
 @media (max-width: 1290px) {
-    .left {
+    /* .left {
         width: 50.5%;
-    }
+    } */
 
     .main-search {
-        flex-shrink: 1;
+        width: calc(100vw - 400px);
+    }
+
+    .home .slogan {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 690px) {
+    .home .slogan {
+        width: 100%;
+        right: -5%;
+        position: absolute;
+    }
+}
+
+@media (max-width: 400px) {
+    .home .slogan {
+        font-size: 36px;
     }
 }

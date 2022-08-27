@@ -21,6 +21,8 @@ export class NoteApp extends React.Component {
             () => this.loadNotes()))
         if (this.props.match.params.noteType) this.updateTypeFilter()
         else this.loadNotes()
+
+        this.onCheckMailReceived()
     }
 
     componentDidUpdate(prevProps) {
@@ -37,6 +39,19 @@ export class NoteApp extends React.Component {
             .then(notes => this.setState({ notes }))
         noteService.getNotes(searchFilter, typeFilter, true)
             .then(pinnedNotes => this.setState({ pinnedNotes }))
+    }
+
+    onCheckMailReceived = () => {
+        const urlParams = new URLSearchParams(this.props.location.search)
+        const title = urlParams.get('title')
+        const subject = urlParams.get('subject')
+
+        if (title && subject) {
+            const note = noteService.getEmptyNoteTemplate()
+            note.info.title = title
+            note.info.subject = subject
+            this.setState({ noteToEdit: note })
+        }
     }
 
     updateTypeFilter() {
