@@ -18,7 +18,7 @@ export function MailPreview({ mail, props }) {
           onClick={(ev) => onToggleStarredMail(ev, id)}
         >
           <img
-            src={`../../../assets/img/mail/${starredClassName}-star-icon.png`}
+            src={`./assets/img/mail/${starredClassName}-star-icon.png`}
             alt=""
           />
         </div>
@@ -34,13 +34,13 @@ export function MailPreview({ mail, props }) {
           className="trash-img-container"
           onClick={(ev) => onRemoveMail(ev, id)}
         >
-          <img src="../../../assets/img/mail/trash-icon.png" />
+          <img src="./assets/img/mail/trash-icon.png" />
         </div>
         <div
           className="read-img-container"
           onClick={(ev) => onToggleReadMail(ev, id)}
         >
-          <img src={`../../../assets/img/mail/${isReadClassName}-icon.png`} />
+          <img src={`./assets/img/mail/${isReadClassName}-icon.png`} />
         </div>
       </article>
     </Link>

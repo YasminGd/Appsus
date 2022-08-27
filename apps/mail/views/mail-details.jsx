@@ -39,6 +39,29 @@ export class MailDetails extends React.Component {
     else this.setState({ isMailComposeOpen: false })
   }
 
+  onSendAsNote = (mail) => {
+    console.log(`this.props:`, this.props)
+    const { subject, body } = mail
+    const params = utilService.getUrlByParams({
+      title: subject,
+      subject: body,
+    })
+    const path = `note/new-note${params}`
+    this.props.history.push(path)
+  }
+
+  // onSendAsMail = (ev, note) => {
+  //   ev.stopPropagation()
+  //   const msgBody = noteService.getInputNameAndVal(note.type)
+  //   const { title } = note.info
+  //   const params = utilService.getUrlByParams({
+  //     title,
+  //     subject: note.info[msgBody],
+  //   })
+  //   const path = `mail/new-mail/${params}`
+  //   this.props.history.push(path)
+  // }
+
   render() {
     const { mail, isMailComposeOpen } = this.state
     if (!mail) return <div></div>
@@ -61,7 +84,10 @@ export class MailDetails extends React.Component {
             >
               <img src="../../../assets/img/mail/trash-icon.png" />
             </span>
-            <span className="send-mail-details">
+            <span
+              className="send-mail-details"
+              onClick={() => this.onSendAsNote(mail)}
+            >
               <i className="fa-solid fa-paper-plane"></i>
             </span>
           </div>

@@ -117,7 +117,7 @@
 
 .mail-folder-list .amount {
   position: absolute;
-  right: 20px;
+  right: 10px;
   font-size: 14px;
 }
 
@@ -163,5 +163,9 @@
     display: block;
     width: 80%;
     font-size: 14px;
+  }
+
+  .mail-folder-list .amount {
+    right: 20px;
   }
 }
