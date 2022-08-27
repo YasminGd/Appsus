@@ -34,7 +34,7 @@ export const demoNotes = [
             ]
         },
         style: {
-            backgroundColor: "purple"
+            backgroundColor: "light-blue"
         },
         isPinned: true
     }, {
@@ -371,106 +371,113 @@ export const demoNotes = [
         id: utilService.makeId(),
         isPinned: false
     }
-    // }, {
-    //     type: 'note-txt',
-    //     info: {
-    //         title: '',
-    //         subject: '',
-    //         url: '',
-    //         todos: []
-    //     },
-    //     style: { backgroundColor: 'white' },
-    //     id: utilService.makeId(),
-    //     isPinned: false
-    // }, {
-    //     type: 'note-txt',
-    //     info: {
-    //         title: '',
-    //         subject: '',
-    //         url: '',
-    //         todos: []
-    //     },
-    //     style: { backgroundColor: 'white' },
-    //     id: utilService.makeId(),
-    //     isPinned: false
-    // }, {
-    //     type: 'note-txt',
-    //     info: {
-    //         title: '',
-    //         subject: '',
-    //         url: '',
-    //         todos: []
-    //     },
-    //     style: { backgroundColor: 'white' },
-    //     id: utilService.makeId(),
-    //     isPinned: false
-    // }, {
-    //     type: 'note-txt',
-    //     info: {
-    //         title: '',
-    //         subject: '',
-    //         url: '',
-    //         todos: []
-    //     },
-    //     style: { backgroundColor: 'white' },
-    //     id: utilService.makeId(),
-    //     isPinned: false
-    // }, {
-    //     type: 'note-txt',
-    //     info: {
-    //         title: '',
-    //         subject: '',
-    //         url: '',
-    //         todos: []
-    //     },
-    //     style: { backgroundColor: 'white' },
-    //     id: utilService.makeId(),
-    //     isPinned: false
-    // }, {
-    //     type: 'note-txt',
-    //     info: {
-    //         title: '',
-    //         subject: '',
-    //         url: '',
-    //         todos: []
-    //     },
-    //     style: { backgroundColor: 'white' },
-    //     id: utilService.makeId(),
-    //     isPinned: false
-    // }, {
-    //     type: 'note-txt',
-    //     info: {
-    //         title: '',
-    //         subject: '',
-    //         url: '',
-    //         todos: []
-    //     },
-    //     style: { backgroundColor: 'white' },
-    //     id: utilService.makeId(),
-    //     isPinned: false
-    // }, {
-    //     type: 'note-txt',
-    //     info: {
-    //         title: '',
-    //         subject: '',
-    //         url: '',
-    //         todos: []
-    //     },
-    //     style: { backgroundColor: 'white' },
-    //     id: utilService.makeId(),
-    //     isPinned: false
-    // }, {
-    //     type: 'note-txt',
-    //     info: {
-    //         title: '',
-    //         subject: '',
-    //         url: '',
-    //         todos: []
-    //     },
-    //     style: { backgroundColor: 'white' },
-    //     id: utilService.makeId(),
-    //     isPinned: false
-    // },
+    , {
+        type: 'note-img',
+        info: {
+            title: '',
+            subject: '',
+            url: 'https://images.unsplash.com/photo-1660462897779-cc7f21062735?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+            todos: []
+        },
+        style: { backgroundColor: 'orange' },
+        id: utilService.makeId(),
+        isPinned: true
+    }, {
+        type: 'note-img',
+        info: {
+            title: '',
+            subject: '',
+            url: 'https://images.unsplash.com/photo-1660507543557-da2b6702d74e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE1fHFQWXNEenZKT1ljfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+            todos: []
+        },
+        style: { backgroundColor: 'pink' },
+        id: utilService.makeId(),
+        isPinned: false
+    }, {
+        type: 'note-todos',
+        info: {
+            title: '',
+            subject: '',
+            url: '',
+            todos: [
+                { txt: "buy plane tickets", doneAt: null, id: utilService.makeId() },
+            ]
+        },
+        style: { backgroundColor: 'yellow' },
+        id: utilService.makeId(),
+        isPinned: false
+    }, {
+        type: 'note-txt',
+        info: {
+            title: '',
+            subject: 'I need to get a haircut',
+            url: '',
+            todos: []
+        },
+        style: { backgroundColor: 'brown' },
+        id: utilService.makeId(),
+        isPinned: false
+    }, {
+        type: 'note-video',
+        info: {
+            title: '',
+            subject: '',
+            url: 'https://www.youtube.com/watch?v=tD-JE2sT1SI',
+            todos: []
+        },
+        style: { backgroundColor: 'dark-blue' },
+        id: utilService.makeId(),
+        isPinned: false
+    }, {
+        type: 'note-txt',
+        info: {
+            title: 'Almost there',
+            subject: '💪',
+            url: '',
+            todos: []
+        },
+        style: { backgroundColor: 'green' },
+        id: utilService.makeId(),
+        isPinned: false
+    }, {
+        type: 'note-todos',
+        info: {
+            title: '',
+            subject: '',
+            url: '',
+            todos: [
+                { txt: "sleep", doneAt: null, id: utilService.makeId() },
+                { txt: "take a shower", doneAt: null, id: utilService.makeId() },
+                { txt: "eat", doneAt: null, id: utilService.makeId() },
+                { txt: "repeat", doneAt: null, id: utilService.makeId() },
+            ]
+        },
+        style: { backgroundColor: 'teal' },
+        id: utilService.makeId(),
+        isPinned: false
+    }, {
+        type: 'note-txt',
+        info: {
+            title: 'I NEED THIS',
+            subject: 'https://shop-us.kurzgesagt.org/collections/space/products/black-white-hole-plushie?variant=32657162403888',
+            url: '',
+            todos: []
+        },
+        style: { backgroundColor: 'orange' },
+        id: utilService.makeId(),
+        isPinned: false
+    }, {
+        type: 'note-txt',
+        info: {
+            title: 'Sprint three is over!',
+            subject: 'I\'m definitely showing this to my mom :)',
+            url: '',
+            todos: []
+        },
+        style: { backgroundColor: 'pink' },
+        id: utilService.makeId(),
+        isPinned: false
+    },
 
 ]
 
