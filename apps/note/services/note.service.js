@@ -153,7 +153,7 @@ function getNotes(filter, typeFilter, isPinned) {
         notes = gNotes
         storageService.saveToStorage(KEY, notes)
     }
-    if (typeFilter) notes = notes.filter(note => note.type === typeFilter)
+    if(typeFilter) notes = notes.filter(note => note.type === typeFilter)
     notes = notes.filter(note => {
         if (note.isPinned === isPinned) {
             if (!filter) return true
@@ -265,11 +265,11 @@ function togglePinnedNote(id) {
 }
 
 function getNoteType(filter) {
-    switch (filter) {
+    switch(filter) {
         case '':
             return ''
         case 'text':
-            return 'note-txt'
+            return'note-txt'
         case 'image':
             return 'note-img'
         case 'video':
@@ -280,7 +280,7 @@ function getNoteType(filter) {
 }
 
 function checkIfNoteChanged(note) {
-    switch (note.type) {
+    switch(note.type) {
         case 'note-txt':
             return (note.info.title || note.info.subject)
         case 'note-img':

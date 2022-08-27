@@ -56,7 +56,7 @@ export class AddNote extends React.Component {
                 <TypeOfNotesIcons onChangeTypeOfNote={this.resetNote} />
                 <form onSubmit={this.onAddNewNote} className="inputs">
                     <input type="text" placeholder="Title" name="title" value={title} onChange={this.handleChange} />
-                    <input type="text" placeholder={placeholder} name={name} value={this.state.info[name]} onChange={this.handleChange} autocomplete="off" />
+                    <input type="text" placeholder={placeholder} name={name} value={this.state.info[name]} onChange={this.handleChange} autoComplete="off" />
                     <button className="add-note-button">Create</button>
                 </form>
             </section>

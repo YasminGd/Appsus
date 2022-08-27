@@ -17,7 +17,7 @@ export class NoteEditor extends React.Component {
 
     componentDidMount() {
         const { note } = this.props
-        this.setState({ type: note.type, info: note.info, id: note.id, style: note.style, isPinned: note.isPinned })
+        this.setState({ type: note.type, info: note.info , id: note.id, style: note.style, isPinned: note.isPinned })
     }
 
     handleChange = ({ target }) => {

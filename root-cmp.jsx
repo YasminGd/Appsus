@@ -17,6 +17,7 @@ export function App() {
           <Route path="/mail/details/:mailId" component={MailDetails} />
           <Route path="/mail/:mailType" component={MailApp} />
           <Route path="/mail" component={MailApp} />
+          <Route path="/note/new-note" component={NoteApp} />
           <Route path="/note/:noteType?" component={NoteApp} />
           <Route path="/about" component={About} />
           <Route path="/" component={Home} />

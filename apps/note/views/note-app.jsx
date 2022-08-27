@@ -17,7 +17,8 @@ export class NoteApp extends React.Component {
     }
 
     componentDidMount() {
-        this.unsubscribe = eventBusService.on('update-note-filter', (searchFilter) => this.setState({ searchFilter }, () => this.loadNotes()))
+        this.unsubscribe = eventBusService.on('update-note-filter', (searchFilter) => this.setState({ searchFilter },
+            () => this.loadNotes()))
         if (this.props.match.params.noteType) this.updateTypeFilter()
         else this.loadNotes()
     }
