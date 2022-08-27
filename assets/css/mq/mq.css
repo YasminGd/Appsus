@@ -11,10 +11,6 @@
 }
 
 @media (max-width: 1290px) {
-  /* .left {
-        width: 50.5%;
-    } */
-
   .main-search {
     width: calc(100vw - 400px);
   }
@@ -27,7 +23,8 @@
 @media (max-width: 690px) {
   .home .slogan {
     width: 100%;
-    right: -5%;
+    top: 17%;
+    right: -11%;
     position: absolute;
   }
 

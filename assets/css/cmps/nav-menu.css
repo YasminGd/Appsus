@@ -5,7 +5,6 @@
   row-gap: 20px;
   background-color: white;
   border-radius: 8px;
-  /* height: 300px; */
   position: absolute;
   transform: translate(-100%, 0);
   top: 50px;
@@ -21,11 +20,9 @@
 .nav-menu .nav-link-container {
   font-size: 14px;
   width: 33%;
-  /* width: 70px; */
   display: flex;
   flex-direction: column;
   padding: 8px;
-  /* padding-top: 0px; */
   justify-content: flex-end;
   align-items: center;
   gap: 10px;
@@ -41,7 +38,6 @@
 }
 
 .nav-menu .nav-link-container div {
-  /* height: 80%; */
   width: 60%;
 }
 
