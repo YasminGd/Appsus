@@ -456,11 +456,11 @@ export const demoNotes = [
         id: utilService.makeId(),
         isPinned: false
     }, {
-        type: 'note-txt',
+        type: 'note-img',
         info: {
             title: 'I NEED THIS',
-            subject: 'https://shop-us.kurzgesagt.org/collections/space/products/black-white-hole-plushie?variant=32657162403888',
-            url: '',
+            subject: '',
+            url: 'https://cdn.shopify.com/s/files/1/0603/3231/0699/products/Space-Mini-Rubber-Duck-Bud-Duck-5_540x.jpg?v=1635977217',
             todos: []
         },
         style: { backgroundColor: 'orange' },

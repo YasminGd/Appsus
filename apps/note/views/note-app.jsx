@@ -46,7 +46,7 @@ export class NoteApp extends React.Component {
         const title = urlParams.get('title')
         const subject = urlParams.get('subject')
 
-        if (title && subject) {
+        if (title || subject) {
             const note = noteService.getEmptyNoteTemplate()
             note.info.title = title
             note.info.subject = subject
