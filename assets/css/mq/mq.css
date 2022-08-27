@@ -1,0 +1,21 @@
+@media (max-width: 804px) {
+    .main-search-container {
+        display: none;
+    }
+}
+
+@media (min-width:1280px) {
+    .main-search {
+        width: 720px;
+    }
+}
+
+@media (max-width: 1290px) {
+    .left {
+        width: 50.5%;
+    }
+
+    .main-search {
+        flex-shrink: 1;
+    }
+}

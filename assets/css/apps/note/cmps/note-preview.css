@@ -1,14 +1,3 @@
-:root {
-    --color-green: #ccff90;
-    --color-yellow: #fff475;
-    --color-orange: #fbbc04;
-    --color-red: #f28b82;
-    --color-pink: #fdcfe8;
-    --color-purple: #d7aefb;
-    --color-light-blue: #cbf0f8;
-    --color-dark-blue: #aecbfa;
-}
-
 .note {
     position: relative;
 }
@@ -83,6 +72,10 @@
 
 .note-video {
     display: block;
+}
+
+.note-todos .title {
+    margin-bottom: 20px;
 }
 
 .green {

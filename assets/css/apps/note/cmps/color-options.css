@@ -1,11 +1,11 @@
 .color-options {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     background-color: white;
     padding: 12px;
     gap: 5px;
     position: absolute;
-    top: 0;
+    top: -10;
     left:0;
     z-index: 100;
     transform: translate(-20%,50%);

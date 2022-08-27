@@ -2,10 +2,10 @@
     /* display: flex; */
 }
 
-/* .main-layout {
-    width: 92%;
-    margin: auto;
-} */
+.main-layout {
+    /* height: calc(100vh - 64px);
+    overflow: scroll; */
+}
 
 .note-app .list-dividers-p {
     letter-spacing: 0.8px;

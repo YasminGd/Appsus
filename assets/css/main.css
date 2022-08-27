@@ -42,5 +42,8 @@
 @import './apps/note/cmps/note-editor.css';
 @import './apps/note/cmps/filter-by-type.css';
 
-/* Notes Cmp */
+/*mq*/
+@import './mq/mq.css';
+
+/* Notes mq */
 @import './apps/note/mq/mq.css';
