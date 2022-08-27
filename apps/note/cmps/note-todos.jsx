@@ -1,7 +1,7 @@
 export function NoteTodos({ info, id, onToggleTodo }) {
 
-    const unCheckedInput = '../../../assets/img/note/unchecked-input.svg'
-    const checkedInput = '../../../assets/img/note/checked-input.svg'
+    const unCheckedInput = './assets/img/note/unchecked-input.svg'
+    const checkedInput = './assets/img/note/checked-input.svg'
 
     return <article className="note-todos">
         <p className="title">{info.title}</p>
