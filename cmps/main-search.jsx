@@ -1,3 +1,4 @@
+//prettier-ignore
 import { updateNoteFilter, updateMailFilter } from './../services/event-bus.service.js'
 const { withRouter } = ReactRouterDOM
 
@@ -13,8 +14,6 @@ class _MainSearch extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log(this.props);
-    console.log(this.state.currentPage, this.props.currentPage);
     if (!this.props.currentPage.includes(this.state.currentPage))
       this.setState({
         currentPage: this.props.currentPage,
@@ -30,13 +29,15 @@ class _MainSearch extends React.Component {
   }
 
   updateFilter = () => {
-    if (this.state.currentPage.includes('/note')) updateNoteFilter(this.state.noteFilter)
+    if (this.state.currentPage.includes('/note'))
+      updateNoteFilter(this.state.noteFilter)
     else updateMailFilter(this.state.mailFilter)
   }
 
   render() {
-    const filter =
-      this.state.currentPage.includes('/note') ? 'noteFilter' : 'mailFilter'
+    const filter = this.state.currentPage.includes('/note')
+      ? 'noteFilter'
+      : 'mailFilter'
 
     return (
       <section className="main-search-container">

@@ -17,7 +17,6 @@ export class MailDetails extends React.Component {
   loadMail = () => {
     const { mailId } = this.props.match.params
     mailService.getMailById(mailId).then((mail) => {
-      // if (!mail) return this.onGoBack()
       this.setState({ mail })
     })
   }
@@ -53,7 +52,7 @@ export class MailDetails extends React.Component {
         />
         <section className="mail-details-content">
           <div className="mail-details-icons">
-            <Link to={'/mail'} className="back-icon-mail-details">
+            <Link to={'/mail/inbox'} className="back-icon-mail-details">
               <i className="fa-solid fa-arrow-left"></i>
             </Link>
             <span
@@ -61,6 +60,9 @@ export class MailDetails extends React.Component {
               onClick={this.onRemoveMail}
             >
               <img src="../../../assets/img/mail/trash-icon.png" />
+            </span>
+            <span className="send-mail-details">
+              <i className="fa-solid fa-paper-plane"></i>
             </span>
           </div>
           <div className="mail-details-text">

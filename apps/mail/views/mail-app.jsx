@@ -18,7 +18,14 @@ export class MailApp extends React.Component {
       this.setState({ filterBy }, () => this.loadMails())
     )
 
-    this.loadMails()
+    if (this.props.match.params.mailType)
+      this.updateTypeFilter(this.props.match.params.mailType)
+    else this.loadMails()
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.mailType !== this.props.match.params.mailType)
+      this.updateTypeFilter(this.props.match.params.mailType)
   }
 
   componentWillUnmount() {
@@ -26,8 +33,10 @@ export class MailApp extends React.Component {
   }
 
   loadMails = () => {
-    const { filterBy } = this.state
-    mailService.query(filterBy).then((mails) => this.setState({ mails }))
+    const { filterBy, filterType } = this.state
+    mailService
+      .query(filterBy, filterType)
+      .then((mails) => this.setState({ mails }))
   }
 
   onRemoveMail = (ev, mailId) => {
@@ -66,6 +75,10 @@ export class MailApp extends React.Component {
 
   onGetUnreadMailsCount = () => {
     return mailService.getUnreadMailsCount()
+  }
+
+  updateTypeFilter = (mailType) => {
+    this.setState({ filterType: mailType }, this.loadMails)
   }
 
   render() {
