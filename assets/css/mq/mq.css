@@ -1,45 +1,50 @@
 @media (max-width: 804px) {
-  .main-search-container {
-    display: none;
-  }
+    .main-search-container {
+        display: none;
+    }
 }
 
 @media (min-width: 1280px) {
-  .main-search {
-    width: 720px;
-  }
+    .main-search {
+        width: 720px;
+    }
 }
 
 @media (max-width: 1290px) {
-  .main-search {
-    width: calc(100vw - 400px);
-  }
+    .main-search {
+        width: calc(100vw - 400px);
+    }
 
-  .home .slogan {
-    font-size: 50px;
-  }
+    .home .slogan {
+        font-size: 50px;
+    }
 }
 
 @media (max-width: 690px) {
-  .home .slogan {
-    width: 100%;
-    top: 17%;
-    right: -11%;
-    position: absolute;
-  }
 
-  .about .about-title {
-    padding: 20px;
-  }
+    .home .slogan {
+        width: 100%;
+        top: 17%;
+        right: -11%;
+        position: absolute;
+    }
 
-  .about-team {
-    flex-direction: column;
-    gap: 20px;
-  }
+    .about .about-title {
+        padding: 20px;
+    }
+
+    .about-team {
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 
 @media (max-width: 400px) {
-  .home .slogan {
-    font-size: 36px;
-  }
+    .home {
+        background-position: 50% 50%;
+    }
+
+    .home .slogan {
+        font-size: 36px;
+    }
 }
