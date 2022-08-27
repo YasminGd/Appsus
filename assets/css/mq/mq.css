@@ -23,9 +23,8 @@
 @media (max-width: 690px) {
 
     .home .slogan {
-        width: 100%;
         top: 17%;
-        right: -11%;
+        left: 11%;
         position: absolute;
     }
 
