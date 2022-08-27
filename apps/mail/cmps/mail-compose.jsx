@@ -71,7 +71,7 @@ export class MailCompose extends React.Component {
             >
               <img
                 className="compose-delete-btn"
-                src="../../../assets/img/mail/trash-icon.png"
+                src="./assets/img/mail/trash-icon.png"
                 alt=""
               />
             </div>

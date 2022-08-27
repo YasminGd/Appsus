@@ -13,7 +13,7 @@ export class NavMenu extends React.Component {
     return (
       <section className="nav-menu">
         <Link exact to="/" className="nav-link-container">
-          <img src="./assets/img/home-icon.svg" alt="" className="home-icon" />
+          <img src="./assets/img/home_icon2.png" alt="" className="home-icon" />
           <p>Home</p>
         </Link>
         <Link to="/mail/inbox" className="nav-link-container">
